@@ -1,0 +1,59 @@
+# -----------------------------------------
+# SETUP
+# -----------------------------------------
+
+# 256 color support
+set -g default-terminal "screen-256color"
+
+# Base index for windows and panes
+set -g base-index 1
+set -g pane-base-index 1
+
+# Reset escape time
+set -sg escape-time 1
+
+# -----------------------------------------
+# COLORS
+# -----------------------------------------
+set -g status-justify centre
+set -g message-fg white
+set -g message-bg black
+set -g status-fg white
+set -g status-bg black
+set -g status-left-fg green
+set -g status-left-bg black
+set -g status-right-fg green
+set -g status-right-bg black
+set -g status-left "#S:#I:#P"
+set -g status-right "#(date +'%d/%m/%Y %R')"
+set -g status-left-length 30
+set -g pane-border-fg white
+set -g pane-border-bg default
+set -g pane-active-border-fg green
+set -g pane-active-border-bg default
+
+# -----------------------------------------
+# MOUSE
+# -----------------------------------------
+set-option -g mouse-select-pane on
+set-option -g mouse-select-window on
+set-option -g mouse-resize-pane on
+setw -g mode-mouse on
+
+# -----------------------------------------
+# KEYS
+# -----------------------------------------
+
+# Remap global <prefix>
+set -g prefix C-a
+bind C-a send-prefix
+
+# Panes
+bind | split-window -h
+bind - split-window -v
+
+# Send input to every pane
+bind-key a set-window-option synchronize-panes
+
+# Reload tmux config
+bind r source-file "$HOME/.tmux.conf"
