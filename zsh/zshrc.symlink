@@ -11,3 +11,8 @@ for config_file ($DOTFILES/**/aliases.zsh) source $config_file
 
 # Bootstrap rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# Bootstrap z
+if [[ -s "`brew --prefix`/etc/profile.d/z.sh" ]]; then
+  . `brew --prefix`/etc/profile.d/z.sh
+fi
