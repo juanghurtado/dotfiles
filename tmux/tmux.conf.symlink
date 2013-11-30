@@ -19,11 +19,11 @@ set -g status-justify centre
 set -g message-fg white
 set -g message-bg black
 set -g status-fg white
-set -g status-bg black
+set -g status-bg colour235
 set -g status-left-fg green
-set -g status-left-bg black
+set -g status-left-bg colour235
 set -g status-right-fg green
-set -g status-right-bg black
+set -g status-right-bg colour235
 set -g status-left "#S:#I:#P"
 set -g status-right "#(date +'%d/%m/%Y %R')"
 set -g status-left-length 30
@@ -49,11 +49,21 @@ set -g prefix C-a
 bind C-a send-prefix
 
 # Panes
-bind | split-window -h
-bind - split-window -v
+bind-key v split-window -h
+bind-key s split-window
+
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+bind-key ^j resize-pane -D 5
+bind-key ^k resize-pane -U 5
+bind-key ^h resize-pane -L 5
+bind-key ^l resize-pane -R 5
 
 # Send input to every pane
 bind-key a set-window-option synchronize-panes
 
 # Reload tmux config
-bind r source-file "$HOME/.tmux.conf"
+bind r source-file "$HOME/.tmux.conf"  \; display-message "Config reloaded…"
