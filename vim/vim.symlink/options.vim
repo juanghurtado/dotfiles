@@ -63,4 +63,5 @@ set wildignore+=*.png,*.jpg,*.gif
 
 let g:airline_powerline_fonts=1
 
+let base16colorspace=256
 colorscheme base16-default

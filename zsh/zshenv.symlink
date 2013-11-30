@@ -3,5 +3,13 @@ if [[ "$SHLVL" -eq 1 && ! -o LOGIN ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
 
+# Exports
+export DOTFILES="${ZDOTDIR:-$HOME}/.dotfiles"
+export TERM="screen-256color"
 export PATH=/usr/local/bin:$HOME/.rbenv/bin:$PATH
 export HOMEBREW_GITHUB_API_TOKEN=e781a207367db09635207441c9eebdfa7bf457be
+
+# Base16 Shell
+BASE16_SCHEME="default"
+BASE16_SHELL="$DOTFILES/zsh/base16-shell/base16-$BASE16_SCHEME.dark.sh"
+[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
