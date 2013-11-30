@@ -61,7 +61,9 @@ set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 
+" vim-airline
 let g:airline_powerline_fonts=1
 
+" base16-vim
 let base16colorspace=256
 colorscheme base16-default
