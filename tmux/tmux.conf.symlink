@@ -50,6 +50,7 @@ setw -g mode-mouse on
 # Remap global <prefix>
 set -g prefix C-a
 bind C-a send-prefix
+unbind C-b
 
 # Panes
 bind-key v split-window -h
