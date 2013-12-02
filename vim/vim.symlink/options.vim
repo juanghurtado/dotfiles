@@ -6,8 +6,6 @@ set clipboard=unnamed
 set cmdheight=1
 set cursorline
 set encoding=utf-8
-set formatoptions+=n
-set formatoptions=qrn1
 set gcr=a:blinkon0
 set gdefault
 set hidden
