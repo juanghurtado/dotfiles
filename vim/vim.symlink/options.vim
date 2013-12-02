@@ -10,7 +10,7 @@ set gcr=a:blinkon0
 set gdefault
 set hidden
 set history=1000
-set hlsearch
+set nohlsearch
 set ignorecase
 set iskeyword-=_
 set laststatus=2
