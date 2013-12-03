@@ -97,8 +97,6 @@ def install_zsh
 	puts
 	run %{echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells}
 
-	puts "Changing shell to ZSH for your user and for root"
-	puts
 	run %{chsh -s /usr/local/bin/zsh}
 	run %{sudo chsh -s /usr/local/bin/zsh}
 
