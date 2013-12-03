@@ -54,7 +54,8 @@ end
 def install_fonts
 	secondary_message "Installing Powerline fonts..."
 
-	run %{cp -f $PWD/powerline-fonts/*.(ttf|otf) $HOME/Library/Fonts}
+	run %{cp -f $PWD/powerline-fonts/**/*.ttf $HOME/Library/Fonts}
+	run %{cp -f $PWD/powerline-fonts/**/*.otf $HOME/Library/Fonts}
 end
 
 def install_command_line_tools
