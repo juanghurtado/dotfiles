@@ -1,32 +1,41 @@
-# Sample gitconfig
-#
-# This is a sample gitconfig. Usually we keep a lot of sensitive information
-# here (things like authentication tokens, email addresses, and so on), so this
-# file is ignored in this project's .gitignore.
-#
-# To set this up, rename this file to `gitconfig.symlink` and you'll be able to
-# install this to the correct location by running the project's main `rake`
-# task.
+# Rename this file to gitconfig.symlink
 [user]
-        name = Zach Holman
-        email = your@example.com
-[alias]
-        co = checkout
-        count   = !git shortlog -sn
-        l     = "!source ~/.githelpers && pretty_git_log"
-        l5    = !git l --max-count=5
-        l10   = !git l --max-count=10
-        last  = !git l -1
-[color]
-        diff = auto
-        status = auto
-        branch = auto
+  name  = Dr. Change Me
+  email = drchangeme@example.com
+[credential]
+  helper = osxkeychain
 [core]
-        excludesfile = ~/.gitignore
-        editor = mate -w
+  editor        = vim
+  excludesfile = ~/.gitignore
+  pager = less -x2
+[alias]
+  st    = status -sb
+  ci    = commit
+  cm    = commit -m
+  amend = commit --amend -C HEAD
+  co    = checkout
+  br    = branch -va
+  brd   = branch -D
+  undo  = reset --soft HEAD^
+  unmerged  = ls-files --unmerged
+  untracked = ls-files --other --exclude-standard
+  ignored   = ls-files --ignored --exclude-standard
+
+  l     = "!source ~/.githelpers && pretty_git_log"
+  l5    = !git l --max-count=5
+  l10   = !git l --max-count=10
+  last  = !git l -1
+  local = !git l `git rev-parse --symbolic-full-name --abbrev-ref HEAD@{u}`..HEAD
+
+  since-last-tag   = !git l `git describe --tags --abbrev=0`..HEAD
+  archive-last-tag = !git archive --format=zip `git describe --tags --abbrev=0` > `git describe --tags --abbrev=0`.zip
+[color]
+  branch      = auto
+  diff        = auto
+  interactive = auto
+  status      = auto
+  ui          = auto
 [apply]
-        whitespace = nowarn
-[github]
-        user = holman
-[mergetool]
-        keepBackup = false
+  whitespace = nowarn
+[push]
+  default = matching
