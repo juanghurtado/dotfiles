@@ -5,7 +5,8 @@ desc "Install system tools and dotfiles. Tested on OSX Mavericks."
 
 task :install do
 	primary_message "Performing install"
-
+	
+	install_fonts
 	install_command_line_tools
 	install_homebrew
 	install_git
@@ -20,6 +21,10 @@ task :install do
 	install_tmux
 	install_z
 	install_ag
+
+	primary_message "Installation complete"
+	puts "Don't forget to import iTerm2 color scheme. You'll find it under:"
+	puts "~/.dotfiles/base16-iterm2/base16-default.dark.256.itermcolors"
 end
 
 task :default => 'install'
@@ -27,7 +32,7 @@ task :default => 'install'
 private
 
 def run(cmd)
-	puts "[Running] #{cmd}"
+	puts "[Running] #{cmd}" if ENV['DEBUG']
 	`#{cmd}` unless ENV['DEBUG']
 end
 
@@ -47,10 +52,18 @@ def secondary_message(message)
 	puts
 end
 
+def install_fonts
+	secondary_message "Installing Powerline fonts..."
+
+	run %{cp -f $PWD/powerline-fonts/*.(ttf|otf) $HOME/Library/Fonts}
+end
+
 def install_command_line_tools
 	secondary_message "Installing OSX Command Line Tools..."
 
 	puts "Wait until OSX Command Line Tools are installed (external window) and then --PRESS ENTER-- to continue..."
+	puts
+
 	run "xcode-select --install"
 
 	STDIN.gets.chomp
@@ -65,6 +78,7 @@ def install_homebrew
 	end
 	
 	puts "Updating Homebrew..."
+	puts
 	run %{brew update}
 end
 
@@ -80,13 +94,16 @@ def install_zsh
 	run %{brew install zsh}
 
 	puts "Adding ZSH to the list of available shells"
+	puts
 	run %{echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells}
 
 	puts "Changing shell to ZSH for your user and for root"
+	puts
 	run %{chsh -s /usr/local/bin/zsh}
 	run %{sudo chsh -s /usr/local/bin/zsh}
 
 	puts "Installing 'reattach-to-user-namespace' in order to get a sane clipboard behaviour"
+	puts
 	run %{brew install reattach-to-user-namespace}
 end
 
@@ -94,16 +111,20 @@ def install_ruby
 	secondary_message "Installing Ruby..."
 
 	puts "Installing rbenv..."
+	puts
 	run %{brew install ruby-build rbenv}
 
 	puts "Installing Ruby 2.0.0-p353..."
+	puts
 	run %{rbenv install 2.0.0-p353}
 	run %{rbenv rehash && rbenv global 2.0.0-p353}
 
 	puts "Installing global gems: bundler, rake"
+	puts
 	run %{gem install bundler rake}
 
 	puts "Installing rbenv plugins: rbenv-bundler, rbenv-gem-rehash, rbenv-gemset"
+	puts
 	run %{brew install rbenv-bundler rbenv-gem-rehash rbenv-gemset}
 end
 
@@ -113,6 +134,7 @@ def install_node
 	run %{brew install nodejs}
 
 	puts "Installing global NPM packages: Grunt and Bower"
+	puts
 	run %{npm install -g grunt-cli bower}
 end
 
