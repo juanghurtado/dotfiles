@@ -11,7 +11,6 @@ task :install do
 	install_homebrew
 	install_git
 	install_zsh
-	install_node
 
 	make_simlinks
 
