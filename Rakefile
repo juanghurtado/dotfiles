@@ -22,7 +22,9 @@ task :install do
 	install_ag
 
 	primary_message "Installation complete"
-	puts "Don't forget to import iTerm2 color scheme. You'll find it under:"
+	puts "You can now restart your ZSH session and start Vim to install its bundles."
+	puts "Don't forget to change iTerm2 ASCII font to a Powerline one and import the color scheme. You'll find it under:"
+	puts
 	puts "~/.dotfiles/base16-iterm2/base16-default.dark.256.itermcolors"
 end
 
