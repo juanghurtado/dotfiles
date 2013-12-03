@@ -13,3 +13,6 @@
 [submodule "powerline-fonts"]
 	path = powerline-fonts
 	url = https://github.com/Lokaltog/powerline-fonts.git
+[submodule "tim/TimTimer"]
+	path = tim/TimTimer
+	url = https://github.com/ggustafsson/Tim

@@ -1,0 +1,56 @@
+# vim: ft=zsh
+
+##############################################################################
+# Change the variables after liking and move the file to ~/.timrc.           #
+#                                                                            #
+# Below are the default settings Tim uses when nothing is set in ~/.timrc.   #
+# Tim looks for audio in ~/.tim and $PWD/audio_files (Tim's directory).      #
+#                                                                            #
+# On GNU/Linux Tim uses "aplay -q" instead of "afplay" by default.           #
+##############################################################################
+
+# The command that executes when the normal countdown mode ends.
+if (($+commands[growlnotify])); then
+	timer_cmd="growlnotify -t 'Time is up!' -m 'Time is gone. Beep beep beep!' -a 'Terminal' -s -p 0"
+else
+	timer_cmd="afplay ~/.dotfiles/tim/TimTimer/audio_files/alarm.wav"
+fi
+
+# Set this to 1 if you want the command above to loop endlessly.
+timer_repeat_cmd=0
+
+# The default time (in minutes) for the interval mode.
+interval=15
+
+# The command that executes when the work period starts.
+if (($+commands[growlnotify])); then
+	work_cmd="growlnotify -t 'Work!' -m 'Start working now!' -a 'Terminal' -s -p 1"
+else
+	work_cmd="afplay ~/.dotfiles/tim/TimTimer/audio_files/work.wav"
+fi
+
+# The command that executes when the break period starts.
+if (($+commands[growlnotify])); then
+	break_cmd="growlnotify -t 'Relax!' -m 'Take a break, you deserve it!' -a 'Terminal' -s -p 2"
+else
+	break_cmd="afplay ~/.dotfiles/tim/TimTimer/audio_files/break.wav"
+fi
+
+# The command that executes when the pomodoro session is completed.
+if (($+commands[growlnotify])); then
+	pomodoro_cmd="growlnotify -t 'Pomodoro end!' -m 'Session complete, relax now!' -a 'Terminal' -s -p 3"
+else
+	pomodoro_cmd="afplay ~/.dotfiles/tim/TimTimer/audio_files/alarm.wav"
+fi
+
+# Set this to 1 if you want the command above to loop endlessly.
+pomodoro_repeat_cmd=0
+
+# The default time (in minutes) for the work period under pomodoro mode.
+pomodoro_work=25
+
+# The default time (in minutes) for the break period under pomodoro mode.
+pomodoro_break=5
+
+# How many times work and break mode should run before pomodoro mode ends.
+pomodoro_stop=4
