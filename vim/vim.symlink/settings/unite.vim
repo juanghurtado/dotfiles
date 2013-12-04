@@ -16,6 +16,7 @@ autocmd FileType unite call s:unite_settings()
 function! s:unite_settings()
 	imap <buffer> <C-j>   <Plug>(unite_select_next_line)
 	imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+	imap <buffer> <C-c>   <Plug>(unite_redraw)
 	imap <silent><buffer><expr> <C-x> unite#do_action('split')
 	imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
 
