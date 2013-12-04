@@ -3,6 +3,7 @@ set autoread
 set background=dark
 set backspace=indent,eol,start
 set cmdheight=1
+set clipboard+=unnamed
 set cursorline
 set encoding=utf-8
 set gcr=a:blinkon0
