@@ -13,14 +13,15 @@ NeoBundle "bling/vim-airline"
 NeoBundle "MarcWeber/vim-addon-mw-utils"
 NeoBundle "dahu/LearnVim"
 NeoBundle "Shougo/unite.vim"
+NeoBundle "cakebaker/scss-syntax.vim"
 NeoBundle "Shougo/vimproc", {
-      \ "build" : {
-      \     "windows" : "make -f make_mingw32.mak",
-      \     "cygwin" : "make -f make_cygwin.mak",
-      \     "mac" : "make -f make_mac.mak",
-      \     "unix" : "make -f make_unix.mak",
-      \    },
-      \ }
+			\ "build" : {
+			\     "windows" : "make -f make_mingw32.mak",
+			\     "cygwin" : "make -f make_cygwin.mak",
+			\     "mac" : "make -f make_mac.mak",
+			\     "unix" : "make -f make_unix.mak",
+			\    },
+			\ }
 
 " Snipmate
 NeoBundle "tomtom/tlib_vim"
