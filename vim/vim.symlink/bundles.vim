@@ -14,6 +14,7 @@ NeoBundle "MarcWeber/vim-addon-mw-utils"
 NeoBundle "dahu/LearnVim"
 NeoBundle "Shougo/unite.vim"
 NeoBundle "cakebaker/scss-syntax.vim"
+NeoBundle "pangloss/vim-javascript"
 NeoBundle "Shougo/vimproc", {
 			\ "build" : {
 			\     "windows" : "make -f make_mingw32.mak",
