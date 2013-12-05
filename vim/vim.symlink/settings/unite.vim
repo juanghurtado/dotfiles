@@ -9,6 +9,7 @@ if executable('ag')
 	let g:unite_source_grep_command = 'ag'
 	let g:unite_source_grep_default_opts = '--noheading --nocolor'
 	let g:unite_source_grep_recursive_opt=''
+	let g:unite_source_rec_async_command='ag --nocolor --nogroup --ignore ".hg" --ignore ".svn" --ignore ".git" --ignore ".bzr" --hidden -g ""'
 endif
 
 autocmd FileType unite call s:unite_settings()
