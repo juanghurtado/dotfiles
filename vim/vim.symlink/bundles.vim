@@ -22,6 +22,8 @@ NeoBundle "tpope/vim-repeat"
 NeoBundle "jiangmiao/auto-pairs"
 NeoBundle "kchmck/vim-coffee-script"
 NeoBundle "danro/rename.vim"
+NeoBundle "mattn/gist-vim"
+NeoBundle "mattn/webapi-vim"
 NeoBundle "Shougo/vimproc", {
 			\ "build" : {
 			\     "windows" : "make -f make_mingw32.mak",
