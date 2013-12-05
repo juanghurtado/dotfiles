@@ -63,7 +63,3 @@ set wildignore+=*.png,*.jpg,*.gif
 let base16colorspace=256
 colorscheme base16-default
 
-" Trailing whitespace
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-au InsertLeave * match ExtraWhitespace /\s\+$/
