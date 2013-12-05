@@ -29,15 +29,12 @@ set scrolloff=8
 set sidescrolloff=15
 set sidescroll=1
 set shiftround
-set shiftwidth=2
 set showcmd
 set showmatch
 set showmode
 set smartcase
 set smartindent
 set so=10
-set softtabstop=2
-set tabstop=2
 set textwidth=80
 set t_Co=256
 set undodir=~/.vim/undo
@@ -58,6 +55,14 @@ set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
+
+" Tabs
+set noexpandtab
+set copyindent
+set preserveindent
+set softtabstop=0
+set shiftwidth=2
+set tabstop=2
 
 " base16-vim
 let base16colorspace=256
