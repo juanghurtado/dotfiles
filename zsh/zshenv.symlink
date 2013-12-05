@@ -6,7 +6,7 @@ fi
 # Exports
 export DOTFILES="${ZDOTDIR:-$HOME}/.dotfiles"
 export TERM="screen-256color"
-export PATH=/usr/local/bin:$HOME/.rbenv/bin:$DOTFILES/bin:$PATH
+export PATH=/usr/local/bin:$HOME/.rbenv/bin:/usr/local/share/npm/bin:$DOTFILES/bin:$PATH
 export HOMEBREW_GITHUB_API_TOKEN=e781a207367db09635207441c9eebdfa7bf457be
 
 # Base16 Shell
