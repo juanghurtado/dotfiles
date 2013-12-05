@@ -18,6 +18,7 @@ NeoBundle "pangloss/vim-javascript"
 NeoBundle "tpope/vim-surround"
 NeoBundle "tomtom/tcomment_vim"
 NeoBundle "tpope/vim-markdown"
+NeoBundle "tpope/vim-repeat"
 NeoBundle "Shougo/vimproc", {
 			\ "build" : {
 			\     "windows" : "make -f make_mingw32.mak",
