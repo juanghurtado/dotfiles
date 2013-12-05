@@ -16,6 +16,7 @@ NeoBundle "Shougo/unite.vim"
 NeoBundle "cakebaker/scss-syntax.vim"
 NeoBundle "pangloss/vim-javascript"
 NeoBundle "tpope/vim-surround"
+NeoBundle "tomtom/tcomment_vim"
 NeoBundle "Shougo/vimproc", {
 			\ "build" : {
 			\     "windows" : "make -f make_mingw32.mak",
