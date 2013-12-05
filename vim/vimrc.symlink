@@ -11,7 +11,6 @@ for file in ["bundles.vim", "options.vim", "mappings.vim"]
 	endif
 endfor
 
-
 for fpath in split(globpath('~/.vim/settings', '*.vim'), '\n')
 	exe "source" fpath
 endfor
