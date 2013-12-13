@@ -76,7 +76,7 @@ def install_homebrew
 
 	unless $? != nil and $?.success?
 		secondary_message "Installing Homebrew..."
-		run %{ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"}
+		run %{ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"}
 	end
 	
 	puts "Updating Homebrew..."
