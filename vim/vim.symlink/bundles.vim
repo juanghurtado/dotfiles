@@ -28,6 +28,7 @@ NeoBundle "ZoomWin"
 NeoBundle "netrw.vim"
 NeoBundle "othree/html5.vim"
 NeoBundle "vim-scripts/BufOnly.vim"
+NeoBundle "groenewege/vim-less"
 NeoBundle "Shougo/vimproc", {
 			\ "build" : {
 			\     "windows" : "make -f make_mingw32.mak",
