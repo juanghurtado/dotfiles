@@ -5,7 +5,7 @@ desc "Install system tools and dotfiles. Tested on OSX Mavericks."
 
 task :install do
 	primary_message "Performing install"
-	
+
 	install_fonts
 	install_command_line_tools
 	install_homebrew
@@ -20,6 +20,7 @@ task :install do
 	install_tmux
 	install_z
 	install_ag
+	install_todotxt
 
 	primary_message "Installation complete"
 	puts "You can now restart your ZSH session and start Vim to install its bundles."
@@ -78,7 +79,7 @@ def install_homebrew
 		secondary_message "Installing Homebrew..."
 		run %{ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"}
 	end
-	
+
 	puts "Updating Homebrew..."
 	puts
 	run %{brew update}
@@ -159,8 +160,14 @@ end
 
 def install_ag
 	secondary_message "Installing Ag (Silver Searcher)"
-	
+
 	run %{brew install ag}
+end
+
+def install_todotxt
+	secondary_message "Installing todo-txt"
+
+	run %{brew install todo-txt}
 end
 
 def make_simlinks
