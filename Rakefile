@@ -179,6 +179,8 @@ def make_simlinks
 	overwrite_all = false
 	backup_all = false
 
+	run "ln -s $PWD/coffeescript/coffeelint.json $HOME/coffeelint.json"
+
 	linkables.each do |linkable|
 		overwrite = false
 		backup = false
