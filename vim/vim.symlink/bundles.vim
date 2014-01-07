@@ -44,6 +44,7 @@ NeoBundle "Shougo/vimproc", {
 NeoBundle "tomtom/tlib_vim"
 NeoBundle "garbas/vim-snipmate"
 NeoBundle "honza/vim-snippets"
+NeoBundle "willthemoor/mcss-for-snipmate"
 
 filetype plugin on
 filetype indent on
