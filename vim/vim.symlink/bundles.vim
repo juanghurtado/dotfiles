@@ -32,6 +32,7 @@ NeoBundle "scrooloose/syntastic.git"
 NeoBundle "tpope/vim-vinegar"
 NeoBundle "Lokaltog/vim-easymotion"
 NeoBundle "terryma/vim-expand-region"
+NeoBundle "kshenoy/vim-signature"
 NeoBundle "Shougo/vimproc", {
 			\ "build" : {
 			\     "windows" : "make -f make_mingw32.mak",
