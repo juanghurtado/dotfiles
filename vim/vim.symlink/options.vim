@@ -23,6 +23,7 @@ set noerrorbells
 set noswapfile
 set nowrap
 set nowb
+set relativenumber
 set number
 set ruler
 set scrolloff=8
