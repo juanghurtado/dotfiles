@@ -35,6 +35,7 @@ NeoBundle "terryma/vim-expand-region"
 NeoBundle "kshenoy/vim-signature"
 NeoBundle "vim-scripts/sudo.vim"
 NeoBundle "jayflo/vim-skip"
+NeoBundle "mustache/vim-mustache-handlebars"
 NeoBundle "Shougo/vimproc", {
 			\ "build" : {
 			\     "windows" : "make -f make_mingw32.mak",
