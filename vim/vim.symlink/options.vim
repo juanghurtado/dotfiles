@@ -89,8 +89,8 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-" bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" Create SilverSearcher :Ag command
+command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 
 " SCSS Filetype for .scss and .sass extensions
 autocmd BufNewFile,BufRead *.scss set filetype=scss
