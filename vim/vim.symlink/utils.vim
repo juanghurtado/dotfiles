@@ -24,7 +24,7 @@ function! s:LowerIndentLimit(lineno)
   return current_line
 endfunction
 
-function! s:IndentTextObject()
+function! IndentTextObject()
   let upper = s:UpperIndentLimit(line('.'))
   let lower = s:LowerIndentLimit(line('.'))
 
@@ -36,7 +36,7 @@ function! s:IndentTextObject()
   endif
 endfunction
 
-function! s:FunctionTextObject(type)
+function! FunctionTextObject(type)
   let function_start = search('\((.\{-})\)\=\s*[-=]>$', 'Wbnc')
   if function_start <= 0
     return

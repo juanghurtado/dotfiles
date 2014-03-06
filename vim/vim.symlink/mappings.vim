@@ -17,13 +17,13 @@ vnoremap <F1> <ESC>
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Same indentation movement
-onoremap ii :<c-u>call <SID>IndentTextObject()<cr>
-onoremap аi :<c-u>call <SID>IndentTextObject()<cr>
-xnoremap ii :<c-u>call <SID>IndentTextObject()<cr>
-xnoremap ai :<c-u>call <SID>IndentTextObject()<cr>
+onoremap ii :<c-u>call IndentTextObject()<cr>
+onoremap аi :<c-u>call IndentTextObject()<cr>
+xnoremap ii :<c-u>call IndentTextObject()<cr>
+xnoremap ai :<c-u>call IndentTextObject()<cr>
 
 " CoffeeScript function movement
-onoremap if :<c-u>call <SID>FunctionTextObject('i')<cr>
-onoremap аf :<c-u>call <SID>FunctionTextObject('a')<cr>
-xnoremap if :<c-u>call <SID>FunctionTextObject('i')<cr>
-xnoremap af :<c-u>call <SID>FunctionTextObject('a')<cr>
+onoremap if :<c-u>call FunctionTextObject('i')<cr>
+onoremap аf :<c-u>call FunctionTextObject('a')<cr>
+xnoremap if :<c-u>call FunctionTextObject('i')<cr>
+xnoremap af :<c-u>call FunctionTextObject('a')<cr>
