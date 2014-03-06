@@ -16,9 +16,6 @@ vnoremap <F1> <ESC>
 " Clean whitespace
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
-" bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-
 " Same indentation movement
 onoremap ii :<c-u>call <SID>IndentTextObject()<cr>
 onoremap аi :<c-u>call <SID>IndentTextObject()<cr>
