@@ -1,16 +1,16 @@
 set nocompatible
 
-let mapleader="\<Space>"
-let g:mapleader="\<Space>"
+let mapleader='\<Space>'
+let g:mapleader='\<Space>'
 
 syntax on
 
-for file in ["bundles.vim", "options.vim", "mappings.vim", "utils.vim"]
-	if filereadable(expand("~/.vim/". file))
-		exe "source ~/.vim/". file
+for file in ['bundles.vim', 'options.vim', 'mappings.vim', 'utils.vim']
+	if filereadable(expand('~/.vim/'. file))
+		exe 'source ~/.vim/'. file
 	endif
 endfor
 
 for fpath in split(globpath('~/.vim/settings', '*.vim'), '\n')
-	exe "source" fpath
+	exe 'source' fpath
 endfor

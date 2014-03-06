@@ -1,5 +1,3 @@
-map <Leader>vca :call VimuxRunCommand("clear; casperjs test " . bufname("%"))<CR>
-
 " Prompt for a command to run
 map <Leader>vp :VimuxPromptCommand<CR>
 
