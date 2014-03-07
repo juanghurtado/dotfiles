@@ -88,3 +88,6 @@ command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 " SCSS Filetype for .scss and .sass extensions
 autocmd BufNewFile,BufRead *.scss set filetype=scss
 autocmd BufNewFile,BufRead *.sass set filetype=sass
+
+" Coffee Compile and go to linenumber => :C<number>
+command! -nargs=1 C CoffeeCompile | :<args>
