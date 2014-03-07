@@ -27,3 +27,7 @@ onoremap if :<c-u>call FunctionTextObject('i')<cr>
 onoremap аf :<c-u>call FunctionTextObject('a')<cr>
 xnoremap if :<c-u>call FunctionTextObject('i')<cr>
 xnoremap af :<c-u>call FunctionTextObject('a')<cr>
+
+" Coffee Compile
+vmap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
+map <leader>c :CoffeeCompile<CR>
