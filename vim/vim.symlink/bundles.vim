@@ -37,6 +37,7 @@ NeoBundle 'vim-scripts/sudo.vim'
 NeoBundle 'jayflo/vim-skip'
 NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'benmills/vimux'
+NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'Shougo/vimproc', {
 			\ 'build' : {
 			\     'windows' : 'make -f make_mingw32.mak',
