@@ -1,3 +1,6 @@
+" vim:fdm=marker
+
+" TODO: Organize this! {{{
 set autoindent
 set autoread
 set background=dark
@@ -38,26 +41,33 @@ set smartindent
 set so=10
 set textwidth=80
 set t_Co=256
+set virtualedit=block
+set visualbell
+
+" }}}
+" Undo {{{
+
 set undodir=~/.vim/undo
 set undolevels=1000
 set undoreload=10000
 set undofile
-set virtualedit=block
-set visualbell
+
+" }}}
+" Wild completion {{{
+
 set wildmode=list:longest
 set wildmenu
 set wildignore=*.o,*.obj,*~
 set wildignore+=*vim/backups*
 set wildignore+=*sass-cache*
 set wildignore+=*DS_Store*
-set wildignore+=vendor/rails/**
-set wildignore+=vendor/cache/**
-set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 
-" Tabs
+" }}}
+" Tabs {{{
+
 set noexpandtab
 set copyindent
 set preserveindent
@@ -65,11 +75,15 @@ set softtabstop=0
 set shiftwidth=2
 set tabstop=2
 
-" base16-vim
+" }}}
+" Color scheme {{{
+
 let base16colorspace=256
 colorscheme base16-default
 
-" Trailing whitespace
+" }}}
+" Whitespace {{{
+
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
@@ -77,7 +91,9 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-" The Silver Searcher
+" }}}
+" The Silver Searcher {{{
+
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 endif
@@ -85,9 +101,11 @@ endif
 " Create SilverSearcher :Ag command
 command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 
-" SCSS Filetype for .scss and .sass extensions
+" }}}
+" Filetypes Autocommands {{{
+
+" Sass Filetype for .scss and .sass extensions
 autocmd BufNewFile,BufRead *.scss set filetype=scss
 autocmd BufNewFile,BufRead *.sass set filetype=sass
 
-" Coffee Compile and go to linenumber => :C<number>
-command! -nargs=1 C CoffeeCompile | :<args>
+" }}}

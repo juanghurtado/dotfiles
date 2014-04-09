@@ -1,33 +1,43 @@
-" Toggle Search Highlight
-nmap <leader>h :set hls! <cr>
+" vim:fdm=marker
 
-" Toggle Paste Mode
-nmap <leader>p :set paste! <cr>
+" Global {{{
 
 " Sane up and down
 nnoremap j gj
 nnoremap k gk
-
-" F1 = ESC
-inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
-vnoremap <F1> <ESC>
 
 " Clean whitespace
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Same indentation movement
 onoremap ii :<c-u>call IndentTextObject()<cr>
-onoremap аi :<c-u>call IndentTextObject()<cr>
 xnoremap ii :<c-u>call IndentTextObject()<cr>
+
 xnoremap ai :<c-u>call IndentTextObject()<cr>
+onoremap аi :<c-u>call IndentTextObject()<cr>
 
-" CoffeeScript function movement
+" }}}
+" Toggles {{{
+
+" Search Highlight
+nmap <leader>h :set hls! <cr>
+
+" Paste Mode
+nmap <leader>p :set paste! <cr>
+
+" }}}
+" CoffeeScript {{{
+
+" Function movement
 onoremap if :<c-u>call FunctionTextObject('i')<cr>
-onoremap аf :<c-u>call FunctionTextObject('a')<cr>
 xnoremap if :<c-u>call FunctionTextObject('i')<cr>
-xnoremap af :<c-u>call FunctionTextObject('a')<cr>
 
-" Coffee Compile
+xnoremap af :<c-u>call FunctionTextObject('a')<cr>
+onoremap аf :<c-u>call FunctionTextObject('a')<cr>
+
+" Compile CoffeeScript on current buffer or selection and show
+" resulting Javascript on a new buffer
 vmap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
 map <leader>c :CoffeeCompile<CR>
+
+" }}}

@@ -1,16 +1,48 @@
+" vim:fdm=marker
+
+" Global config options {{{
+
+" Fuck Vi!
 set nocompatible
 
+" Follow the space leader, leader leader. Follow the space leader!
 let mapleader="\<Space>"
 let g:mapleader="\<Space>"
 
+" Turn on syntax highlighting
 syntax on
 
-for file in ['bundles.vim', 'options.vim', 'mappings.vim', 'utils.vim']
-	if filereadable(expand('~/.vim/'. file))
-		exe 'source ~/.vim/'. file
-	endif
+"}}}
+" NeoBundle {{{
+
+filetype off
+
+if has('vim_starting')
+	set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+exe 'source ~/.vim/bundles.vim'
+
+filetype plugin on
+filetype indent on
+
+NeoBundleCheck
+
+" }}}
+" Load config files {{{
+
+" Load config files in this order: Options, Key mappings and Utils
+for file in ['options.vim', 'mappings.vim', 'utils.vim']
+	exe 'source ~/.vim/'. file
 endfor
 
+" Load NeoBundle plugins specific options and customizations
 for fpath in split(globpath('~/.vim/settings', '*.vim'), '\n')
 	exe 'source' fpath
 endfor
+
+" }}}

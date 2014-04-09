@@ -1,13 +1,3 @@
-filetype off
-
-if has('vim_starting')
-	set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-call neobundle#rc(expand('~/.vim/bundle/'))
-
-NeoBundleFetch 'Shougo/neobundle.vim'
-
 NeoBundle 'chriskempson/base16-vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'MarcWeber/vim-addon-mw-utils'
@@ -39,22 +29,12 @@ NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'benmills/vimux'
 NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'nelstrom/vim-markdown-preview'
-NeoBundle 'Shougo/vimproc', {
-			\ 'build' : {
-			\     'windows' : 'make -f make_mingw32.mak',
-			\     'cygwin' : 'make -f make_cygwin.mak',
-			\     'mac' : 'make -f make_mac.mak',
-			\     'unix' : 'make -f make_unix.mak',
-			\    },
-			\ }
-
-" Snipmate
 NeoBundle 'tomtom/tlib_vim'
 NeoBundle 'garbas/vim-snipmate'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'willthemoor/mcss-for-snipmate'
-
-filetype plugin on
-filetype indent on
-
-NeoBundleCheck
+NeoBundle 'Shougo/vimproc', {
+			\ 'build' : {
+			\     'mac' : 'make -f make_mac.mak',
+			\    },
+			\ }

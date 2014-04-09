@@ -1,3 +1,7 @@
+" vim:fdm=marker
+
+" Indent Utils {{{
+
 function! s:UpperIndentLimit(lineno)
   let base_indent  = indent(a:lineno)
   let current_line = a:lineno
@@ -23,6 +27,9 @@ function! s:LowerIndentLimit(lineno)
 
   return current_line
 endfunction
+
+" }}}
+" Indent functions {{{
 
 function! IndentTextObject()
   let upper = s:UpperIndentLimit(line('.'))
@@ -59,3 +66,5 @@ function! FunctionTextObject(type)
     exe 'normal! V'
   endif
 endfunction
+
+" }}}
