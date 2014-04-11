@@ -34,6 +34,7 @@ set sidescrolloff=15
 set sidescroll=1
 set shiftround
 set showcmd
+set showbreak=↪
 set showmatch
 set showmode
 set smartcase
