@@ -34,6 +34,7 @@ NeoBundle 'garbas/vim-snipmate'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'willthemoor/mcss-for-snipmate'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'Shougo/vimproc', {
 			\ 'build' : {
 			\     'mac' : 'make -f make_mac.mak',
