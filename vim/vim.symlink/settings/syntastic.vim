@@ -5,3 +5,5 @@ let g:syntastic_coffee_checkers = ['coffeelint']
 let g:syntastic_coffee_coffeelint_args = '--csv --file ~/coffeelint.json'
 let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_quiet_messages = {'level': 'warnings'}
+let g:syntastic_disabled_filetypes=['html']
+let g:syntastic_html_checkers=['']
