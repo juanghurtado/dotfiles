@@ -16,14 +16,14 @@ xnoremap ii :<c-u>call IndentTextObject()<cr>
 xnoremap ai :<c-u>call IndentTextObject()<cr>
 onoremap аi :<c-u>call IndentTextObject()<cr>
 
+" Paste Mode
+nmap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+
 " }}}
 " Toggles {{{
 
 " Search Highlight
 nmap <leader>h :set hls! <cr>
-
-" Paste Mode
-nmap <leader>p :set paste! <cr>
 
 " }}}
 " CoffeeScript {{{
