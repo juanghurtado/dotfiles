@@ -33,6 +33,8 @@ NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'vim-scripts/BufOnly.vim'
 NeoBundle 'vim-scripts/sudo.vim'
 NeoBundle 'vim-scripts/text-object-left-and-right'
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'xolox/vim-notes'
 NeoBundle 'ZoomWin'
 
 NeoBundle 'Shougo/vimproc', {
