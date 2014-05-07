@@ -117,4 +117,7 @@ command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 autocmd BufNewFile,BufRead *.scss set filetype=scss
 autocmd BufNewFile,BufRead *.sass set filetype=sass
 
+" Set Make program to ghvpreview on Markdown files
+autocmd BufRead,BufNewFile,BufWrite {*.markdown,*.md,*.mdk} set makeprg=ghpreview\ %
+
 " }}}
