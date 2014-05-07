@@ -1,0 +1,167 @@
+" vim:fdm=marker
+
+" Editor options {{{
+
+" Indentation
+set autoindent
+set smartindent
+
+" Auto reload files when changed from outside Vim
+set autoread
+
+" Fix backspace behaviour in insert mode
+set backspace=indent,eol,start
+
+" Use system clipboard
+set clipboard+=unnamed
+
+" Highlight current line
+set cursorline
+
+" Set default encoding
+set encoding=UTF-8
+
+" Global substitution by default
+set gdefault
+
+" Allows having not-saved buffers
+set hidden
+
+" Redraw setting, improves performance
+set lazyredraw
+
+" Set de number of actions to be saved on the history
+set history=100
+
+" Don't highlight search results by default
+" (I use a key mapping for that)
+set nohlsearch
+
+" Ignore the case in search patterns, unless expression
+" contains uppercase characters
+set ignorecase
+set smartcase
+
+" Remove _ as keyword. Ex: "what_the_fuck" is a single word
+set iskeyword-=_
+
+" Always show statusline, even with only one window
+set laststatus=2
+
+" Show invisible characters and use some custom chars for them
+set list
+set listchars=tab:▸\ ,eol:¬
+
+" Don't backup files
+set nobackup
+
+" Don't bell on errors
+set noerrorbells
+
+" We don't want a swap file
+set noswapfile
+
+" Don't wrap lines, but if wrapped, show a custom char at the end
+set nowrap
+set showbreak=↪
+
+" Relative line numbering, and real line number for current line
+set relativenumber
+set number
+
+" Show line number, column and the relative position of the show text
+set ruler
+
+" Keep 5 lines above and behind the cursor
+set scrolloff=5
+
+" Show commands (and visual selection info) on status line
+set showcmd
+
+" Autoindent on new lines
+set smartindent
+
+" }}}
+" FastEscape {{{
+
+augroup FastEscape
+	autocmd!
+	au InsertEnter * set timeoutlen=0
+	au InsertLeave * set timeoutlen=1000
+augroup END
+
+" }}}
+" Undo {{{
+
+set undodir=~/.vim/undo
+set undolevels=1000
+set undoreload=10000
+set undofile
+
+" }}}
+" Wild completion {{{
+
+set wildmode=list:longest
+set wildmenu
+set wildignore=*~
+set wildignore+=*vim/backups*
+set wildignore+=*sass-cache*
+set wildignore+=*DS_Store*
+set wildignore+=log/**
+set wildignore+=tmp/**
+set wildignore+=*.png,*.jpg,*.gif
+
+" }}}
+" Tabs {{{
+
+" Prefer tabs vs spaces. Although with EditorConfig this
+" can be overwritten on a per-project basis
+set noexpandtab
+set copyindent
+set preserveindent
+set softtabstop=0
+set shiftwidth=2
+set tabstop=2
+
+" }}}
+" Color scheme {{{
+
+set t_Co=256
+set background=dark
+let base16colorspace=256
+colorscheme base16-default
+
+" }}}
+" Whitespace {{{
+
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+match ExtraWhitespace /\s\+$/
+
+augroup ExtraWhitespaceCommand
+	autocmd BufWinEnter * if &modifiable && &ft!='unite' | match ExtraWhitespace /\s\+$/ | endif
+	autocmd InsertEnter * if &modifiable && &ft!='unite' | match ExtraWhitespace /\s\+\%#\@<!$/ | endif
+	autocmd InsertLeave * if &modifiable && &ft!='unite' | match ExtraWhitespace /\s\+$/ | endif
+	autocmd BufWinLeave * if &modifiable && &ft!='unite' | call clearmatches() | endif
+augroup END
+
+" }}}
+" The Silver Searcher {{{
+
+if executable('ag')
+	" Set SilverSearcher as default :grep program
+	set grepprg=ag\ --nogroup\ --nocolor
+
+	" Create SilverSearcher :Ag command
+	command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+endif
+
+" }}}
+" Filetypes Autocommands {{{
+
+" Sass Filetype for .scss
+autocmd BufNewFile,BufRead *.scss set filetype=scss
+
+" Set Make program to `ghvpreview` on Markdown files
+autocmd BufRead,BufNewFile,BufWrite {*.markdown,*.md,*.mdk} set makeprg=ghpreview\ %
+
+" }}}

@@ -2,12 +2,11 @@
 
 " Global config options {{{
 
-" Fuck Vi!
+" We don't need Vi compatibility
 set nocompatible
 
-" Follow the space leader, leader leader. Follow the space leader!
+" Set <leader> key to <Space>. I don't like default <leader>
 let mapleader="\<Space>"
-let g:mapleader="\<Space>"
 
 " Turn on syntax highlighting
 syntax on
@@ -25,7 +24,13 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-exe 'source ~/.vim/bundles.vim'
+if !empty(glob('~/.vim/vimrc.bundles'))
+	exe 'source ~/.vim/vimrc.bundles'
+endif
+
+if !empty(glob('~/.vimrc.bundles.local'))
+	exe 'source ~/.vimrc.bundles.local'
+endif
 
 filetype plugin on
 filetype indent on
@@ -36,13 +41,22 @@ NeoBundleCheck
 " Load config files {{{
 
 " Load config files in this order: Options, Key mappings and Utils
-for file in ['options.vim', 'mappings.vim', 'utils.vim']
-	exe 'source ~/.vim/'. file
+for file in ['vimrc.options', 'vimrc.mappings', 'vimrc.utils']
+	if !empty(glob('~/.vim/'. file))
+		exe 'source ~/.vim/'. file
+	endif
 endfor
 
 " Load NeoBundle plugins specific options and customizations
-for fpath in split(globpath('~/.vim/settings', '*.vim'), '\n')
-	exe 'source' fpath
+for fpath in split(globpath('~/.vim/bundle-settings', '*.vim'), '\n')
+	if !empty(glob(fpath))
+		exe 'source' fpath
+	endif
 endfor
+
+" Load vimrc.local
+if !empty(glob('~/.vimrc.local'))
+	exe 'source ~/.vimrc.local'
+endif
 
 " }}}
