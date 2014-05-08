@@ -7,6 +7,7 @@ NeoBundle 'danro/rename.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'ZoomWin'
+NeoBundle 'dockyard/vim-easydir'
 " }}}
 " Snippets {{{
 NeoBundle 'garbas/vim-snipmate'
