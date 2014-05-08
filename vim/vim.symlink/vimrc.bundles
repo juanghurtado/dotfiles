@@ -5,7 +5,7 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'chriskempson/base16-vim'
 NeoBundle 'danro/rename.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'ZoomWin'
 NeoBundle 'dockyard/vim-easydir'
 " }}}
