@@ -27,6 +27,6 @@ endfunction
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 
-nnoremap <leader>t :<C-u>Unite file_rec/async:!<CR>
+nnoremap <silent> <leader>t :<C-u>Unite file_rec/async:!<CR><CR>
 nnoremap <leader>b :<C-u>Unite buffer<CR>
 nnoremap <leader>y :<C-u>Unite history/yank<CR>
