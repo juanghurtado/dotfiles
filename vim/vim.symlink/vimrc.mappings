@@ -21,6 +21,9 @@ endif
 " Paste
 nmap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 
+" Select last pasted text
+nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
+
 " }}}
 " Toggles {{{
 
