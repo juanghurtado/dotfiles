@@ -21,6 +21,7 @@ task :install do
 	install_z
 	install_ag
 	install_todotxt
+	install_ghpreview
 
 	primary_message "Installation complete"
 	puts "You can now restart your ZSH session and start Vim to install its bundles."
@@ -162,6 +163,12 @@ def install_ag
 	secondary_message "Installing Ag (Silver Searcher)"
 
 	run %{brew install ag}
+end
+
+def install_ghpreview
+	secondary_message "Installing ghpreview"
+
+	run %{gem install ghpreview}
 end
 
 def install_todotxt
