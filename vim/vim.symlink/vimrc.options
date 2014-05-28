@@ -18,6 +18,9 @@ set clipboard+=unnamed
 " Highlight current line
 set cursorline
 
+" Highlight current column
+set cursorcolumn
+
 " Set default encoding
 set encoding=UTF-8
 
