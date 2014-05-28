@@ -6,6 +6,17 @@
 nnoremap j gj
 nnoremap k gk
 
+" Reselect after indent
+vnoremap < <gv
+vnoremap > >gv
+
+" Keep search results at the center of the screen
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
+
 " Clean whitespace
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
