@@ -143,7 +143,7 @@ end
 def install_vim
 	secondary_message "Installing Vim..."
 
-	run %{brew install macvim --override-system-vim}
+	run %{brew install vim --override-system-vim --with-lua --with-tcl}
 end
 
 def install_tmux
