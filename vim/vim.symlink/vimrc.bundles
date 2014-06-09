@@ -44,6 +44,7 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'vim-scripts/BufOnly.vim'
 NeoBundle 'vim-scripts/sudo.vim'
+NeoBundle 'henrik/vim-reveal-in-finder'
 
 NeoBundle 'Shougo/vimproc', {
 	\ 'build' : {
