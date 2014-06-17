@@ -8,6 +8,7 @@ NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'ZoomWin'
 NeoBundle 'dockyard/vim-easydir'
+NeoBundle 'godlygeek/tabular'
 " }}}
 " Snippets {{{
 NeoBundle 'garbas/vim-snipmate'
