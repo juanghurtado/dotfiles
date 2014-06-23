@@ -45,8 +45,9 @@ set nohlsearch
 set ignorecase
 set smartcase
 
-" Add - as keyword. Ex: "what-the-fuck" are 5 words
+" Add - and _ as keyword. Ex: "what-the-fuck" and "what_the_fuck" are 5 words
 set iskeyword-=-
+set iskeyword-=_
 
 " Always show statusline, even with only one window
 set laststatus=2
