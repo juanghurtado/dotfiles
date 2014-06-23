@@ -30,7 +30,7 @@ if exists('*IndentTextObject')
 endif
 
 " Paste
-nmap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+nnoremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 
 " Select last pasted text
 nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
@@ -39,7 +39,7 @@ nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 " Toggles {{{
 
 " Search Highlight
-nmap <leader>h :set hls! <cr>
+nnoremap <leader>h :set hls! <cr>
 
 " Quickfix
 nnoremap <silent> <Leader>q :ToggleQuickfix<CR>
@@ -59,8 +59,8 @@ endif
 " Compile CoffeeScript on current buffer or selection and show
 " resulting Javascript on a new buffer
 if exists('*CoffeeCompile')
-	vmap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
-	map <leader>c :CoffeeCompile<CR>
+	vnoremap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
+	nnoremap <leader>c :CoffeeCompile<CR>
 endif
 
-"c}}}
+" }}}
