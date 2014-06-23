@@ -11,6 +11,12 @@ let mapleader="\<Space>"
 " Turn on syntax highlighting
 syntax on
 
+" Define vars for VIM files paths
+let $VIM_MAPPINGS_PATH="~/.vim/vimrc.mappings"
+let $VIM_OPTIONS_PATH="~/.vim/vimrc.options"
+let $VIM_UTILS_PATH="~/.vim/vimrc.utils"
+let $VIM_BUNDLES_PATH="~/.vim/vimrc.bundles"
+
 "}}}
 " NeoBundle {{{
 

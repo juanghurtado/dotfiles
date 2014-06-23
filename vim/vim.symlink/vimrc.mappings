@@ -2,6 +2,13 @@
 
 " Global {{{
 
+" Working with Vim config files
+nnoremap <leader>vm :split $VIM_MAPPINGS_PATH<cr>
+nnoremap <leader>vo :split $VIM_OPTIONS_PATH<cr>
+nnoremap <leader>vu :split $VIM_UTILS_PATH<cr>
+nnoremap <leader>vb :split $VIM_BUNDLES_PATH<cr>
+nnoremap <leader>vs :source $MYVIMRC<cr>
+
 " Sane up and down
 nnoremap j gj
 nnoremap k gk
