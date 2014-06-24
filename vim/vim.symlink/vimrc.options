@@ -40,6 +40,9 @@ set history=100
 " (I use a key mapping for that)
 set nohlsearch
 
+" Highlights the search result as you type
+set incsearch
+
 " Ignore the case in search patterns, unless expression
 " contains uppercase characters
 set ignorecase
