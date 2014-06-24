@@ -24,6 +24,9 @@ set cursorcolumn
 " Set default encoding
 set encoding=UTF-8
 
+" Folds opened by default
+set foldlevelstart=20
+
 " Global substitution by default
 set gdefault
 
@@ -170,5 +173,8 @@ autocmd BufNewFile,BufRead *.scss set filetype=scss
 
 " Set Make program to `ghvpreview` on Markdown files
 autocmd BufRead,BufNewFile,BufWrite {*.markdown,*.md,*.mdk} set makeprg=ghpreview\ %
+
+" Set indent fold for CoffeeScript
+autocmd BufNewFile,BufRead *.coffee set foldmethod=indent
 
 " }}}
