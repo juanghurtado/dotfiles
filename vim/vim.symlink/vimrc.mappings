@@ -2,6 +2,17 @@
 
 " Global {{{
 
+" Stop using arrow keys
+nnoremap <Up> <NOP>
+nnoremap <Down> <NOP>
+nnoremap <Left> <NOP>
+nnoremap <Right> <NOP>
+
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+
 " Working with Vim config files
 nnoremap <leader>vm :split $VIM_MAPPINGS_PATH<cr>
 nnoremap <leader>vo :split $VIM_OPTIONS_PATH<cr>
