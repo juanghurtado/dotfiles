@@ -9,6 +9,7 @@ NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'ZoomWin'
 NeoBundle 'dockyard/vim-easydir'
 NeoBundle 'godlygeek/tabular'
+NeoBundle 'inside/vim-search-pulse'
 " }}}
 " Snippets {{{
 NeoBundle 'garbas/vim-snipmate'
