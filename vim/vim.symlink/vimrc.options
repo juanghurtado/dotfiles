@@ -177,4 +177,7 @@ autocmd BufRead,BufNewFile,BufWrite {*.markdown,*.md,*.mdk} set makeprg=ghprevie
 " Set indent fold for CoffeeScript
 autocmd BufNewFile,BufRead *.coffee set foldmethod=indent
 
+" Wrap on Markdown files
+autocmd BufRead,BufNewFile,BufWrite {*.markdown,*.md,*.mdk} set wrap linebreak nolist textwidth=0 wrapmargin=0 formatoptions+=1
+
 " }}}
