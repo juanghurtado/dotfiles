@@ -180,4 +180,7 @@ autocmd BufNewFile,BufRead *.coffee set foldmethod=indent
 " Wrap on Markdown files
 autocmd BufRead,BufNewFile,BufWrite {*.markdown,*.md,*.mdk} set wrap linebreak nolist textwidth=0 wrapmargin=0 formatoptions+=1
 
+" Make Enter follow tags in helpfiles
+autocmd Filetype help nnoremap <buffer> <cr> <c-]>
+
 " }}}
