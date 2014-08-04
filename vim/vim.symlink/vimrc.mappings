@@ -13,6 +13,10 @@ inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 
+" Duplicate lines
+nnoremap <leader>d YP`[v`]<esc>l
+vnoremap <leader>d YP`[v`]<esc>l
+
 " Working with Vim config files
 nnoremap <leader>vm :split $VIM_MAPPINGS_PATH<cr>
 nnoremap <leader>vo :split $VIM_OPTIONS_PATH<cr>
