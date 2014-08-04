@@ -28,6 +28,11 @@ nnoremap k gk
 vnoremap < <gv
 vnoremap > >gv
 
+" Fill line with "-" until textwidth
+if exists('*FillLine')
+	nnoremap <silent> <Leader>f :call FillLine('-')<CR>
+endif
+
 " Keep search results at the center of the screen
 nnoremap <silent> n nzz<Plug>PulseCursorLine
 nnoremap <silent> N Nzz<Plug>PulseCursorLine
