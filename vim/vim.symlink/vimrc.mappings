@@ -17,6 +17,12 @@ inoremap <Right> <NOP>
 nnoremap <leader>d YP`[v`]<esc>l
 vnoremap <leader>d YP`[v`]<esc>l
 
+" Navigate through foldings
+if exists('*NextClosedFold')
+	nnoremap <silent> <leader>zj :call NextClosedFold('j')<cr>
+	nnoremap <silent> <leader>zk :call NextClosedFold('k')<cr>
+endif
+
 " Working with Vim config files
 nnoremap <leader>vm :split $VIM_MAPPINGS_PATH<cr>
 nnoremap <leader>vo :split $VIM_OPTIONS_PATH<cr>
@@ -91,3 +97,4 @@ if exists('*CoffeeCompile')
 endif
 
 " }}}
+
