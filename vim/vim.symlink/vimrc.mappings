@@ -2,6 +2,17 @@
 
 " Global {{{
 
+" Quick save
+nnoremap <Leader>w :w<CR>
+
+" Jump to the end of pasted content
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
+
+" Avoid q:
+map q: :q
+
 " Stop using arrow keys
 nnoremap <Up> <NOP>
 nnoremap <Down> <NOP>
