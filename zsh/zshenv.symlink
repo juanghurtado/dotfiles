@@ -6,10 +6,17 @@ fi
 # Exports
 export DOTFILES="${ZDOTDIR:-$HOME}/.dotfiles"
 export TERM="screen-256color"
-export PATH=/usr/local/bin:$HOME/.rbenv/bin:/usr/local/share/npm/bin:$HOME/dev/android/adt-bundle/sdk/platform-tools:$DOTFILES/bin:$PATH
+export PATH=/usr/local/bin:$HOME/.rbenv/bin:/usr/local/share/npm/bin:$HOME/dev/android/adt-bundle/sdk/platform-tools:$DOTFILES/bin:$HOME/.node/bin:$PATH
 export HOMEBREW_GITHUB_API_TOKEN=e781a207367db09635207441c9eebdfa7bf457be
 
 # Base16 Shell
 BASE16_SCHEME="default"
 BASE16_SHELL="$DOTFILES/zsh/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+
+# Android SDK
+export ANDROID_HOME=/Applications/android-sdk
+export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+
+# Node
+export NODE_PATH=/usr/local/lib/node_modules

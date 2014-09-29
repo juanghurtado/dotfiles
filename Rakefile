@@ -133,7 +133,11 @@ end
 def install_node
 	secondary_message "Installing NodeJS..."
 
-	run %{brew install nodejs}
+	run %{brew install node --without-npm}
+
+	secondary_message "Installing NPM…"
+
+	run %{curl -L https://www.npmjs.org/install.sh | sh}
 
 	puts "Installing global NPM packages: Grunt and Bower"
 	puts
