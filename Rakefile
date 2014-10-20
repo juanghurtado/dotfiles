@@ -116,10 +116,10 @@ def install_ruby
 	puts
 	run %{brew install ruby-build rbenv}
 
-	puts "Installing Ruby 2.0.0-p353..."
+	puts "Installing Ruby 2.1.3"
 	puts
-	run %{rbenv install 2.0.0-p353}
-	run %{rbenv rehash && rbenv global 2.0.0-p353}
+	run %{rbenv install 2.1.3}
+	run %{rbenv rehash && rbenv global 2.1.3}
 
 	puts "Installing global gems: bundler, rake"
 	puts
