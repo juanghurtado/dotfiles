@@ -20,6 +20,8 @@
   unmerged  = ls-files --unmerged
   untracked = ls-files --other --exclude-standard
   ignored   = ls-files --ignored --exclude-standard
+  wip = !git add --all . && git commit -m 'WIP'
+  unwip = undo
 
   l     = "!source ~/.githelpers && pretty_git_log"
   l5    = !git l --max-count=5
