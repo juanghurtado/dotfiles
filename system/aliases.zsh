@@ -13,3 +13,6 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+
 
 # Empty the Trash on all mounted volumes and the main HDD
 alias emptytrash="sudo rm -rfv /Volumes/**/.Trashes; sudo rm -rfv ~/.Trash"
+
+# Clear screen
+alias cl="clear"
