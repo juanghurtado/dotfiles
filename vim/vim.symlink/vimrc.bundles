@@ -33,6 +33,7 @@ NeoBundle 'tomtom/tlib_vim'
 NeoBundle 'MarcWeber/vim-addon-mw-utils'
 " }}}
 " Utils {{{
+NeoBundle 'jbgutierrez/vim-partial'
 NeoBundle 'benmills/vimux'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'mattn/gist-vim'
