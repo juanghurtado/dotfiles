@@ -20,12 +20,9 @@ NeoBundle 'willthemoor/mcss-for-snipmate'
 NeoBundle 'sheerun/vim-polyglot'
 " }}}
 " Movements {{{
-NeoBundle 'gcmt/wildfire.vim'
-NeoBundle 'jayflo/vim-skip'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'michaeljsmith/vim-indent-object'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'vim-scripts/text-object-left-and-right'
 " }}}
 " Libs {{{
 NeoBundle 'mattn/webapi-vim'

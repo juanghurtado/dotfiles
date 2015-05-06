@@ -13,17 +13,6 @@ nnoremap <silent> p p`]
 " Avoid q:
 map q: :q
 
-" Stop using arrow keys
-nnoremap <Up> <NOP>
-nnoremap <Down> <NOP>
-nnoremap <Left> <NOP>
-nnoremap <Right> <NOP>
-
-inoremap <Up> <NOP>
-inoremap <Down> <NOP>
-inoremap <Left> <NOP>
-inoremap <Right> <NOP>
-
 " Duplicate lines
 nnoremap <leader>d YP`[v`]<esc>l
 vnoremap <leader>d YP`[v`]<esc>l
@@ -78,7 +67,6 @@ nnoremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 
 " Select last pasted text
 nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
-
 " }}}
 " Toggles {{{
 
