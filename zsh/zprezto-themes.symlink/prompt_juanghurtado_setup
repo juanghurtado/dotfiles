@@ -45,10 +45,10 @@ function prompt_juanghurtado_setup {
   add-zsh-hook precmd prompt_juanghurtado_precmd
 
   # Set editor-info parameters.
-  zstyle ':prezto:module:editor:info:completing' format '%B%F{black}...%f%b'
-  zstyle ':prezto:module:editor:info:keymap:primary' format '%F{blue}›%f'
+  zstyle ':prezto:module:editor:info:completing' format '%B%F{black}⋯%f%b'
+  zstyle ':prezto:module:editor:info:keymap:primary' format '%F{blue}❯%f'
   zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format '%F{blue}♺%f'
-  zstyle ':prezto:module:editor:info:keymap:alternate' format '%F{blue}‹%f'
+  zstyle ':prezto:module:editor:info:keymap:alternate' format '%F{blue}❮%f'
 
   # Set git-info parameters.
   zstyle ':prezto:module:git:info' verbose 'yes'
