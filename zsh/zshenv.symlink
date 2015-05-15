@@ -8,6 +8,7 @@ export DOTFILES="${ZDOTDIR:-$HOME}/.dotfiles"
 export TERM="screen-256color"
 export PATH=/usr/local/bin:$HOME/.rbenv/bin:/usr/local/share/npm/bin:$HOME/dev/android/adt-bundle/sdk/platform-tools:$DOTFILES/bin:$HOME/.node/bin:$PATH
 export HOMEBREW_GITHUB_API_TOKEN=e781a207367db09635207441c9eebdfa7bf457be
+export GOPATH=$HOME/go
 
 # Base16 Shell
 BASE16_SCHEME="default"
@@ -23,3 +24,6 @@ export NODE_PATH=/usr/local/lib/node_modules:$HOME/.node/lib/node_modules
 
 # PHP
 export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
+
+# Go
+export PATH=$PATH:$GOPATH/bin
