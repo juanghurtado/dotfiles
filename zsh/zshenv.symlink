@@ -10,6 +10,9 @@ export PATH=/usr/local/bin:$HOME/.rbenv/bin:/usr/local/share/npm/bin:$HOME/dev/a
 export HOMEBREW_GITHUB_API_TOKEN=e781a207367db09635207441c9eebdfa7bf457be
 export GOPATH=$HOME/go
 
+# Hide Homebrew emojis
+export HOMEBREW_NO_EMOJI=1
+
 # Base16 Shell
 BASE16_SCHEME="default"
 BASE16_SHELL="$DOTFILES/zsh/base16-shell/base16-$BASE16_SCHEME.dark.sh"
