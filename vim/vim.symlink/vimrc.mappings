@@ -18,10 +18,7 @@ nnoremap <leader>d YP`[v`]<esc>l
 vnoremap <leader>d YP`[v`]<esc>l
 
 " Navigate through foldings
-if exists('*NextClosedFold')
-	nnoremap <silent> <leader>zj :call NextClosedFold('j')<cr>
-	nnoremap <silent> <leader>zk :call NextClosedFold('k')<cr>
-endif
+nnoremap <silent> zk :<C-u>execute "normal! zk[z"<CR>
 
 " Working with Vim config files
 nnoremap <leader>vm :split $VIM_MAPPINGS_PATH<cr>
@@ -73,9 +70,13 @@ nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 " Search Highlight
 nnoremap <leader>h :set hls! <cr>
 
-" Quickfix
-nnoremap <silent> <Leader>q :ToggleQuickfix<CR>
-
+" }}}
+" Notes {{{
+map <leader>n :e! $NOTES_FOLDER<CR>
+map <leader>m :Note 
+map <leader>0 :NoteList 
+command -nargs=1 Note :exe "e! " . fnameescape("$NOTES_FOLDER/<args>.md")
+command -nargs=1 NoteList :grep "<args>" $NOTES_FOLDER
 " }}}
 " CoffeeScript {{{
 

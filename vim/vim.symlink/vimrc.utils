@@ -1,50 +1,15 @@
 " vim:fdm=marker
 
-" Quickfix window toggle {{{
-
-function! s:QuickfixToggle()
-	for i in range(1, winnr('$'))
-		let bnum = winbufnr(i)
-		if getbufvar(bnum, '&buftype') == 'quickfix'
-			cclose
-			lclose
-			return
-		endif
-	endfor
-	copen
-endfunction
-command! ToggleQuickfix call <SID>QuickfixToggle()
-
-" }}}
-
 " Fill rest of line with characters {{{
 function! FillLine( str )
-    " set tw to the desired total length
     let tw = &textwidth
+
     if tw==0 | let tw = 80 | endif
-    " strip trailing spaces first
     .s/[[:space:]]*$//
-    " calculate total number of 'str's to insert
     let reps = (tw - col("$")) / len(a:str)
-    " insert them, if there's room, removing trailing spaces (though forcing
-    " there to be one)
+
     if reps > 0
         .s/$/\=(' '.repeat(a:str, reps))/
     endif
 endfunction
-
-function! NextClosedFold(dir)
-    let cmd = 'norm!z' . a:dir
-    let view = winsaveview()
-    let [l0, l, open] = [0, view.lnum, 1]
-    while l != l0 && open
-        exe cmd
-        let [l0, l] = [l, line('.')]
-        let open = foldclosed(l) < 0
-    endwhile
-    if open
-        call winrestview(view)
-    endif
-endfunction
-
 " }}}
