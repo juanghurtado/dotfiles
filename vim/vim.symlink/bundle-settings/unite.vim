@@ -33,3 +33,4 @@ nnoremap <leader>t :<C-u>Unite file_rec/async:!<CR>
 nnoremap <leader>b :<C-u>Unite buffer<CR>
 nnoremap <leader>y :<C-u>Unite history/yank<CR>
 nnoremap <leader>g :<C-u>Unite grep:.:<CR>
+nnoremap <leader>q :<C-u>Unite qf<CR>
