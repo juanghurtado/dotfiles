@@ -13,6 +13,9 @@ export GOPATH=$HOME/go
 # Hide Homebrew emojis
 export HOMEBREW_NO_EMOJI=1
 
+# Notes PATH
+export NOTES_FOLDER=~/notes
+
 # Base16 Shell
 BASE16_SCHEME="default"
 BASE16_SHELL="$DOTFILES/zsh/base16-shell/base16-$BASE16_SCHEME.dark.sh"
