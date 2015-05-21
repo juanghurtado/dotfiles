@@ -30,8 +30,8 @@ set -g status-left-fg green
 set -g status-left-bg colour235
 set -g status-right-fg green
 set -g status-right-bg colour235
-set -g status-left "#S:#I:#P"
-set -g status-right "#(date +'%d/%m/%Y %R')"
+set -g status-left " #S:#I:#P"
+set -g status-right "#(date +'%a %d/%m/%Y %R') "
 set -g status-left-length 30
 set -g pane-border-fg white
 set -g pane-border-bg default
