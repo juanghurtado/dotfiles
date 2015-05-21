@@ -163,9 +163,6 @@ augroup END
 if executable('ag')
 	" Set SilverSearcher as default :grep program
 	set grepprg=ag\ --nogroup\ --nocolor
-
-	" Create SilverSearcher :Ag command
-	command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 endif
 
 " }}}
@@ -177,11 +174,14 @@ autocmd BufNewFile,BufRead *.scss set filetype=scss
 " Set Make program to `ghvpreview` on Markdown files
 autocmd BufRead,BufNewFile,BufWrite {*.markdown,*.md,*.mdk} set makeprg=ghpreview\ %
 
-" Set indent fold for CoffeeScript
-autocmd BufNewFile,BufRead *.coffee set foldmethod=indent
-
 " Wrap on Markdown files
 autocmd BufRead,BufNewFile,BufWrite {*.markdown,*.md,*.mdk} set wrap linebreak nolist textwidth=0 wrapmargin=0 formatoptions+=1
+
+" Set marker fold for Markdown
+autocmd BufRead,BufNewFile,BufWrite {*.markdown,*.md,*.mdk} set foldmethod=marker
+
+" Set indent fold for CoffeeScript
+autocmd BufNewFile,BufRead *.coffee set foldmethod=indent
 
 " Make Enter follow tags in helpfiles
 autocmd Filetype help nnoremap <buffer> <cr> <c-]>
