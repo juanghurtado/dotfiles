@@ -5,6 +5,9 @@
 " Quick save
 nnoremap <Leader>w :w<CR>
 
+" Creates a new line on an ordered list while on insert mode
+inoremap <C-j> <esc>yyp0wwd$:.,$g/^\d/exe "normal! \<C-a>"<CR>A
+
 " Jump to the end of pasted content
 vnoremap <silent> y y`]
 vnoremap <silent> p p`]
