@@ -8,20 +8,12 @@ nnoremap <Leader>w :w<CR>
 " Creates a new line on an ordered list while on insert mode
 inoremap <C-j> <esc>yyp0wwd$:.,$g/^\d/exe "normal! \<C-a>"<CR>A
 
-" Jump to the end of pasted content
-vnoremap <silent> y y`]
-vnoremap <silent> p p`]
-nnoremap <silent> p p`]
-
 " Avoid q:
 map q: :q
 
 " Duplicate lines
 nnoremap <leader>d YP`[v`]<esc>l
 vnoremap <leader>d YP`[v`]<esc>l
-
-" Navigate through foldings
-nnoremap <silent> zk :<C-u>execute "normal! zk[z"<CR>
 
 " Working with Vim config files
 nnoremap <leader>vm :split $VIM_MAPPINGS_PATH<cr>
@@ -37,11 +29,6 @@ nnoremap k gk
 " Reselect after indent
 vnoremap < <gv
 vnoremap > >gv
-
-" Fill line with "-" until textwidth
-if exists('*FillLine')
-	nnoremap <silent> <Leader>f :call FillLine('-')<CR>
-endif
 
 " Keep search results at the center of the screen
 nnoremap <silent> n nzz<Plug>PulseCursorLine
@@ -64,6 +51,10 @@ endif
 
 " Paste
 nnoremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+
+" Fill line
+map <leader>f :Fill 
+command -nargs=1 Fill :exe ":call FillLine('<args>')"
 
 " Select last pasted text
 nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
@@ -100,4 +91,3 @@ if exists('*CoffeeCompile')
 endif
 
 " }}}
-
