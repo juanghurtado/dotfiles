@@ -53,9 +53,9 @@ export LIGHT_BLUE='\\033[1;34m'
 # Priorities can be any upper-case letter.
 # A,B,C are highlighted; you can add coloring for more.
 #
-# export PRI_A=$YELLOW        # color for A priority
-# export PRI_B=$GREEN         # color for B priority
-# export PRI_C=$LIGHT_BLUE    # color for C priority
+export PRI_A=$RED
+export PRI_B=$LIGHT_RED
+export PRI_C=$BROWN
 # export PRI_D=...            # define your own
 # export PRI_X=$WHITE         # color unless explicitly defined
 
