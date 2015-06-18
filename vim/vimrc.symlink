@@ -7,6 +7,7 @@ set nocompatible
 
 " Set <leader> key to <Space>. I don't like default <leader>
 let mapleader="\<Space>"
+let maplocalleader="\<Space>"
 
 " Turn on syntax highlighting
 syntax on
