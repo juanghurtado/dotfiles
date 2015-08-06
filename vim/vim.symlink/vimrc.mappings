@@ -8,6 +8,9 @@ nnoremap <Leader>w :w<CR>
 " Creates a new line on an ordered list while on insert mode
 inoremap <C-j> <esc>yyp0wwd$:.,$g/^\d/exe "normal! \<C-a>"<CR>A
 
+" Replace word under cursor
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+
 " Avoid q:
 map q: :q
 
