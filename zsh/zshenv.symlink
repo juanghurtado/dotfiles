@@ -33,3 +33,6 @@ export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
 
 # Go
 export PATH=$PATH:$GOPATH/bin
+
+# Calibre
+export PATH=$PATH:/Applications/calibre.app/Contents/MacOS
