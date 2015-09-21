@@ -1,5 +1,5 @@
-git/gitconfig.symlink
-vim/vim.symlink/.netrwhist
-vim/vim.symlink/undo/
-vim/vim.symlink/bundle/*
-!vim/vim.symlink/bundle/neobundle.vim
+git/gitconfig
+vim/vim/.netrwhist
+vim/vim/undo/
+vim/vim/bundle/*
+!vim/vim/bundle/neobundle.vim

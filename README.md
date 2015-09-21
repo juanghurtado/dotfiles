@@ -21,10 +21,11 @@ We are the masters of our enemy. We are the saviors of my life.
 
 ## Install
 
-```
-sh -c "`curl -fsSL https://raw.github.com/juanghurtado/dotfiles/master/install.sh`"
-```
+* `git clone https://github.com/juanghurtado/dotfiles.git`
+* `cd dotfiles`
+* `chmod +x install`
+* `./install`
 
 ## Thanks
 
-These dotfiles are built upon ideas found on [Zach Holman's dotfiles](https://github.com/holman/dotfiles) and [Yadr](http://skwp.github.io/dotfiles/).
+These dotfiles are built upon ideas found on [Zach Holman's dotfiles](https://github.com/holman/dotfiles) and [Yadr](http://skwp.github.io/dotfiles/). Also uses [dotbot](https://github.com/anishathalye/dotbot) to tight everything together.
