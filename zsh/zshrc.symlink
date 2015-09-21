@@ -13,7 +13,11 @@ bindkey '^r' history-incremental-search-backward
 for config_file ($DOTFILES/**/aliases.zsh) source $config_file
 for util_file ($DOTFILES/**/utils.zsh) source $util_file
 
-# Bootstrap z
-if [[ -s "`brew --prefix`/etc/profile.d/z.sh" ]]; then
-  . `brew --prefix`/etc/profile.d/z.sh
+# Local files to be sourced if exists
+if [[ -s "${ZDOTDIR:-$HOME}/.zshrc.local" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zshrc.local"
+fi
+
+if [[ -s "${ZDOTDIR:-$HOME}/.zshenv.local" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zshenv.local"
 fi
