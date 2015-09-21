@@ -6,14 +6,13 @@ fi
 # Exports
 export DOTFILES="${ZDOTDIR:-$HOME}/.dotfiles"
 export TERM="screen-256color"
-export PATH=/usr/local/bin:$HOME/.rbenv/bin:/usr/local/share/npm/bin:$HOME/dev/android/adt-bundle/sdk/platform-tools:$DOTFILES/bin:$HOME/.node/bin:$PATH
 export HOMEBREW_GITHUB_API_TOKEN=e781a207367db09635207441c9eebdfa7bf457be
 export GOPATH=$HOME/go
 
 # Hide Homebrew emojis
 export HOMEBREW_NO_EMOJI=1
 
-# Notes PATH
+# Notes
 export NOTES_FOLDER=~/notes
 
 # Base16 Shell
@@ -21,18 +20,12 @@ BASE16_SCHEME="default"
 BASE16_SHELL="$DOTFILES/zsh/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
-# Android SDK
-export ANDROID_HOME=/Applications/android-sdk
-export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-
 # Node
 export NODE_PATH=/usr/local/lib/node_modules:$HOME/.node/lib/node_modules
 
-# PHP
-export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
-
-# Go
-export PATH=$PATH:$GOPATH/bin
-
-# Calibre
-export PATH=$PATH:/Applications/calibre.app/Contents/MacOS
+# PATH
+export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:$DOTFILES/bin
+export PATH=$PATH:$HOME/.rbenv/bin
+export PATH=$PATH:/usr/local/share/npm/bin
+export PATH=$PATH:$HOME/.node/bin
