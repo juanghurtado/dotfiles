@@ -1,0 +1,40 @@
+[core]
+  editor        = vim
+  excludesfile = ~/.gitignore
+  pager = less -x2
+[alias]
+  st    = status -sb
+  ci    = commit
+  cm    = commit -m
+  amend = commit --amend -C HEAD
+  co    = checkout
+  br    = branch -va
+  brd   = branch -D
+  undo  = reset --soft HEAD^
+  unmerged  = ls-files --unmerged
+  untracked = ls-files --other --exclude-standard
+  ignored   = ls-files --ignored --exclude-standard
+  wip = !git add --all . && git commit -m 'WIP'
+  unwip = undo
+
+  l     = "!source ~/.githelpers && pretty_git_log"
+  l5    = !git l --max-count=5
+  l10   = !git l --max-count=10
+  l20   = !git l --max-count=20
+  last  = !git l -1
+  local = !git l `git rev-parse --symbolic-full-name --abbrev-ref HEAD@{u}`..HEAD
+
+  since-last-tag   = !git l `git describe --tags --abbrev=0`..HEAD
+  archive-last-tag = !git archive --format=zip `git describe --tags --abbrev=0` > `git describe --tags --abbrev=0`.zip
+[color]
+  branch      = auto
+  diff        = auto
+  interactive = auto
+  status      = auto
+  ui          = auto
+[apply]
+  whitespace = nowarn
+[push]
+  default = matching
+[include]
+	path = ~/.gitconfig.local

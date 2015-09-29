@@ -61,6 +61,7 @@
 - link:
     ~/.dotfiles: ''
     ~/coffeelint.json: coffeescript/coffeelint.json
+    ~/.gitconfig: git/gitconfig
     ~/.githelpers: git/githelpers
     ~/.gitignore: git/gitignore
     ~/.gemrc: rubygems/gemrc
