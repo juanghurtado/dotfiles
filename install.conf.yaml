@@ -8,7 +8,7 @@
     - [cp -f $PWD/powerline-fonts/**/*.otf $HOME/Library/Fonts, Installing OTF fonts]
 
 - shell:
-    - ["ruby -e $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)", Installing Homebrew…]
+    - ["ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\"", Installing Homebrew…]
     - [brew install caskroom/cask/brew-cask, Installing Homebrew Cask…]
     - [brew tap homebrew/services, Installing Homebrew Services…]
     - [brew cask install iterm2, Installing iTerm2]
@@ -21,7 +21,7 @@
     - [brew cask install spectacle, Installing Spectacle]
     - [brew install git git-extras, Installing Git and Git extras]
     - [brew install zsh, Installing ZSH]
-    - [brew install dropbox, Installing Dropbox]
+    - [brew cask install dropbox, Installing Dropbox]
     -
         command: [echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells, Add ZSH as a valid system shell]
         stdin: true
@@ -38,11 +38,10 @@
         stdout: true
         stderr: true
     - [brew install reattach-to-user-namespace, Installing sane copy&paste for terminal]
-    - [brew install node --without-npm, Installing NodeJS]
-    - ["curl -L https://www.npmjs.org/install.sh | sh", Installing NPM]
+    - [brew install node, Installing NodeJS]
     - [npm install -g grunt-cli bower, Installing Grunt and Bower]
     - [brew install ruby-build rbenv, Installing rbenv]
-    - 
+    -
         command: [rbenv install 2.2.3 && rbenv rehash && rbenv global 2.2.3, Installing Ruby 2.2.3]
         stdin: true
         stdout: true
@@ -62,7 +61,6 @@
 - link:
     ~/.dotfiles: ''
     ~/coffeelint.json: coffeescript/coffeelint.json
-    ~/.gitconfig: git/gitconfig
     ~/.githelpers: git/githelpers
     ~/.gitignore: git/gitignore
     ~/.gemrc: rubygems/gemrc

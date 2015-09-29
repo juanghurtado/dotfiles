@@ -21,3 +21,4 @@ fi
 if [[ -s "${ZDOTDIR:-$HOME}/.zshenv.local" ]]; then
   source "${ZDOTDIR:-$HOME}/.zshenv.local"
 fi
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
