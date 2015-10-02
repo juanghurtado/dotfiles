@@ -5,7 +5,7 @@ alias ls="ls -FAlhoG"
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
 # Update
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cask update; brew cask upgrade; brew cleanup; brew cask cleanup; npm update -g; gem update'
+alias update='sudo softwareupdate -i -a; brew update; brew cask update; brew upgrade --all; brew cleanup; brew cask cleanup; npm update -g; gem update'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
