@@ -6,8 +6,6 @@ fi
 # Exports
 export DOTFILES="${ZDOTDIR:-$HOME}/.dotfiles"
 export TERM="screen-256color"
-export HOMEBREW_GITHUB_API_TOKEN=e781a207367db09635207441c9eebdfa7bf457be
-export GOPATH=$HOME/go
 
 # Hide Homebrew emojis
 export HOMEBREW_NO_EMOJI=1
