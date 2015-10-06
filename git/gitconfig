@@ -26,6 +26,8 @@
 
   since-last-tag   = !git l `git describe --tags --abbrev=0`..HEAD
   archive-last-tag = !git archive --format=zip `git describe --tags --abbrev=0` > `git describe --tags --abbrev=0`.zip
+  assume = update-index --assume-unchanged
+  unassume = update-index --no-assume-unchanged
 [color]
   branch      = auto
   diff        = auto
