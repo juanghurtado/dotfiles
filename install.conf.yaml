@@ -83,6 +83,3 @@
     ~/.zprofile: zsh/zprofile
     ~/.zshenv: zsh/zshenv
     ~/.zshrc: zsh/zshrc
-
-- shell:
-    - [echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.zshrc, Setting up rbenv]
