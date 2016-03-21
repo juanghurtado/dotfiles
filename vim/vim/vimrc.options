@@ -192,4 +192,7 @@ autocmd BufNewFile,BufRead *.coffee set foldmethod=indent
 " Make Enter follow tags in helpfiles
 autocmd Filetype help nnoremap <buffer> <cr> <c-]>
 
+" Crontab
+autocmd FileType crontab setlocal nowritebackup
+
 " }}}
