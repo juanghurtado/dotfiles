@@ -1,7 +1,8 @@
 " vim:fdm=marker
 
 " Editor {{{
-NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'chriskempson/base16-vim'
 NeoBundle 'danro/rename.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
