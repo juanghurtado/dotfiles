@@ -22,8 +22,7 @@ zstyle ':prezto:load' pmodule \
   'utility' \
   'completion' \
   'prompt' \
-  'git' \
-  'ruby'
+  'git'
 
 #
 # Editor
