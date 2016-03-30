@@ -49,7 +49,6 @@ NeoBundle 'vim-scripts/BufOnly.vim'
 NeoBundle 'vim-scripts/sudo.vim'
 NeoBundle 'henrik/vim-reveal-in-finder'
 NeoBundle 'vim-scripts/netrw.vim'
-NeoBundle 'takac/vim-hardtime'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'freitass/todo.txt-vim'
 
