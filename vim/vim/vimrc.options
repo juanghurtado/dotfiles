@@ -178,13 +178,10 @@ endif
 autocmd BufNewFile,BufRead *.scss set filetype=scss
 
 " Set Make program to `ghvpreview` on Markdown files
-autocmd BufRead,BufNewFile,BufWrite {*.markdown,*.md,*.mdk} set makeprg=ghpreview\ %
+autocmd BufRead,BufNewFile {*.markdown,*.md,*.mdk} set makeprg=ghpreview\ %
 
 " Wrap on Markdown files
-autocmd BufRead,BufNewFile,BufWrite {*.markdown,*.md,*.mdk} set wrap linebreak nolist textwidth=0 wrapmargin=0 formatoptions+=1
-
-" Set marker fold for Markdown
-autocmd BufRead,BufNewFile,BufWrite {*.markdown,*.md,*.mdk} set foldmethod=marker
+autocmd BufRead,BufNewFile {*.markdown,*.md,*.mdk} set wrap linebreak nolist textwidth=80 wrapmargin=0 formatoptions+=1
 
 " Set indent fold for CoffeeScript
 autocmd BufNewFile,BufRead *.coffee set foldmethod=indent
@@ -195,4 +192,20 @@ autocmd Filetype help nnoremap <buffer> <cr> <c-]>
 " Crontab
 autocmd FileType crontab setlocal nowritebackup
 
+" Markdown foldings
+function MarkdownLevel()
+	let h = matchstr(getline(v:lnum), '^#\+')
+	if empty(h)
+		return "="
+	else
+		return ">" . len(h)
+	endif
+endfunction
+
+autocmd BufEnter *.md setlocal foldexpr=MarkdownLevel()
+autocmd BufEnter *.md setlocal foldmethod=expr
+
+" Save and restore folds when saving
+autocmd BufWrite ?* mkview
+autocmd BufRead ?* silent loadview
 " }}}
