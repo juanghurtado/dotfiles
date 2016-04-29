@@ -51,6 +51,7 @@ NeoBundle 'henrik/vim-reveal-in-finder'
 NeoBundle 'vim-scripts/netrw.vim'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'freitass/todo.txt-vim'
+NeoBundle 'mrtazz/simplenote.vim'
 
 NeoBundle 'Shougo/vimproc', {
 	\ 'build' : {
