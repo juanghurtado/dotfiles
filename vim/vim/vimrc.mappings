@@ -68,13 +68,6 @@ nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 nnoremap <leader>h :set hls! <cr>
 
 " }}}
-" Notes {{{
-map <leader>n :e! $NOTES_FOLDER<CR>
-map <leader>m :Note 
-map <leader>0 :NoteList 
-command -nargs=1 Note :exe "e! " . $NOTES_FOLDER . "/" . fnameescape("<args>.md")
-command -nargs=1 NoteList :grep "<args>" $NOTES_FOLDER
-" }}}
 " CoffeeScript {{{
 
 " Function movement
