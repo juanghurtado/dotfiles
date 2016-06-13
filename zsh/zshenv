@@ -5,7 +5,7 @@ fi
 
 # Exports
 export DOTFILES="${ZDOTDIR:-$HOME}/.dotfiles"
-export TERM="screen-256color"
+export TERM="xterm-256color"
 
 # Hide Homebrew emojis
 export HOMEBREW_NO_EMOJI=1
