@@ -14,9 +14,8 @@ export HOMEBREW_NO_EMOJI=1
 export NOTES_FOLDER=~/notes
 
 # Base16 Shell
-BASE16_SCHEME="default"
-BASE16_SHELL="$DOTFILES/zsh/base16-shell/base16-$BASE16_SCHEME.dark.sh"
-[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+BASE16_SHELL=$DOTFILES/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # Node
 export NODE_PATH=/usr/local/lib/node_modules:$HOME/.node/lib/node_modules
