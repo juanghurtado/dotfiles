@@ -1,24 +1,32 @@
 [submodule "zsh/zprezto"]
 	path = zsh/zprezto
 	url = https://github.com/sorin-ionescu/prezto.git
+	ignore = dirty
 [submodule "zsh/base16-shell"]
 	path = zsh/base16-shell
 	url = https://github.com/chriskempson/base16-shell.git
+	ignore = dirty
 [submodule "vim/vim/bundle/neobundle.vim"]
 	path = vim/vim/bundle/neobundle.vim
 	url = https://github.com/Shougo/neobundle.vim.git
+	ignore = dirty
 [submodule "base16-iterm2"]
 	path = base16-iterm2
 	url = https://github.com/chriskempson/base16-iterm2.git
+	ignore = dirty
 [submodule "powerline-fonts"]
 	path = powerline-fonts
 	url = https://github.com/Lokaltog/powerline-fonts.git
+	ignore = dirty
 [submodule "tim/TimTimer"]
 	path = tim/TimTimer
 	url = https://github.com/ggustafsson/Tim
+	ignore = dirty
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
+	ignore = dirty
 [submodule "base16-shell"]
 	path = base16-shell
 	url = https://github.com/chriskempson/base16-shell.git
+	ignore = dirty
