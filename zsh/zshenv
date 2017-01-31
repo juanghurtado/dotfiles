@@ -28,6 +28,7 @@ export PATH=$PATH:/usr/local/share/npm/bin
 export PATH=$PATH:$HOME/.node/bin
 
 export HOMEBREW_CASK_OPTS=--caskroom=/opt/homebrew-cask/Caskroom
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 # transfer
 
 #
