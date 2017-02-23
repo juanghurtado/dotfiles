@@ -1,6 +1,7 @@
 " vim:fdm=marker
 
 " Global config options {{{
+" ---------------------
 
 " We don't need Vi compatibility
 set nocompatible
@@ -17,14 +18,13 @@ let $VIM_MAPPINGS_PATH="~/.vim/vimrc.mappings"
 let $VIM_OPTIONS_PATH="~/.vim/vimrc.options"
 let $VIM_UTILS_PATH="~/.vim/vimrc.utils"
 let $VIM_BUNDLES_PATH="~/.vim/vimrc.bundles"
-
 "}}}
 " NeoBundle {{{
-
+" ---------
 filetype off
 
 if has('vim_starting')
-	set runtimepath+=~/.vim/bundle/neobundle.vim/
+set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
@@ -32,11 +32,11 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 if !empty(glob('~/.vim/vimrc.bundles'))
-	exe 'source ~/.vim/vimrc.bundles'
+exe 'source ~/.vim/vimrc.bundles'
 endif
 
 if !empty(glob('~/.vimrc.bundles.local'))
-	exe 'source ~/.vimrc.bundles.local'
+exe 'source ~/.vimrc.bundles.local'
 endif
 
 call neobundle#end()
@@ -45,9 +45,9 @@ filetype plugin on
 filetype indent on
 
 NeoBundleCheck
-
 " }}}
 " Load config files {{{
+" -----------------
 
 " Load config files in this order: Options, Key mappings and Utils
 for file in ['vimrc.options', 'vimrc.mappings', 'vimrc.utils']
@@ -67,5 +67,4 @@ endfor
 if !empty(glob('~/.vimrc.local'))
 	exe 'source ~/.vimrc.local'
 endif
-
 " }}}
