@@ -19,6 +19,7 @@ Plug 'dockyard/vim-easydir'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
@@ -30,6 +31,9 @@ call plug#end()
 
 " Airline
 let g:airline_powerline_fonts=1
+
+" Vim Markdown
+let g:markdown_fenced_languages = ['html', 'javascript', 'bash=sh', 'java', 'json']
 
 "}}}
 "{{{Editor
@@ -171,10 +175,6 @@ augroup END
 
 " Normal mode
 " -----------
-" Sane up and down
-nnoremap j gj
-nnoremap k gk
-
 " Keep search results at the center of the screen
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
@@ -213,6 +213,16 @@ vnoremap > >gv
 " ---
 "  Search Vim help for word under cursor
 au FileType vim nnoremap K :help <C-r><C-w><CR>
+
+" Markdown
+" --------
+au FileType markdown setlocal wrap
+
+" Fix up and down movements on wrapped text (visual and normal mode)
+au FileType markdown nnoremap <expr> j v:count ? 'j' : 'gj'
+au FileType markdown nnoremap <expr> k v:count ? 'k' : 'gk'
+au FileType markdown vnoremap <expr> j v:count ? 'j' : 'gj'
+au FileType markdown vnoremap <expr> k v:count ? 'k' : 'gk'
 
 "}}}
 "{{{Functions
