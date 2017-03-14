@@ -1,1 +1,0 @@
-alias mvnc="mvn clean eclipse:eclipse"
