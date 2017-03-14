@@ -1,5 +1,4 @@
-vim/vim/.netrwhist
-vim/vim/undo/
-vim/vim/bundle/*
-!vim/vim/bundle/neobundle.vim
-vim/vim/view
+vim/.netrwhist
+vim/undo/
+vim/view
+vim/plugins

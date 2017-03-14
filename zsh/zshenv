@@ -1,0 +1,39 @@
+#{{{Configuration
+
+export DOTFILES="$HOME/.dotfiles"
+export TERM="xterm-256color"
+
+# Editor
+export EDITOR="vim"
+export VISUAL="vim"
+
+# Pager
+export PAGER="less"
+export LESS="-F -g -i -M -R -S -w -X -z-4"
+
+# Colors
+export LSCOLORS="exfxcxdxbxGxDxabagacad"
+export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:"
+export ZLS_COLORS="ma=0;100:$LS_COLORS"
+
+# Shell history
+export HISTFILE="${ZDOTDIR:-$HOME}/.zhistory"
+export HISTSIZE=10000
+export SAVEHIST=10000
+
+# Todo.txt
+export TODOTXT_SORT_COMMAND='env LC_COLLATE=C sort -k 2,2 -k 1,1n'
+export TODOTXT_DEFAULT_ACTION=ls
+
+#}}}
+#{{{Path
+
+# Avoid loading global profiles (to prevent OSX El Capitan from messing my $PATH)
+setopt no_global_rcs
+
+typeset -U path
+path=(~/bin $DOTFILES/bin $DOTFILES/tmux/sessions /usr/local/bin $path[@])
+
+#}}}
+
+# vim:foldmethod=marker:foldlevel=0:fen

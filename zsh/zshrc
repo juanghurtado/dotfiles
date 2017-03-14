@@ -1,0 +1,190 @@
+#{{{Load modules
+
+autoload -Uz compinit && compinit
+autoload -Uz promptinit && promptinit
+autoload -Uz colors && colors
+autoload -Uz vcs_info
+autoload -Uz zsh/terminfo
+
+#}}}
+#{{{Global configuration
+
+# Set prompt to vi-mode
+bindkey -v
+
+# Edit current command in $EDITOR
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
+# Incremental search in vi-mode
+bindkey '^r' history-incremental-search-backward
+
+# Activate extended glob qualifiers (ex: ls **/*.{pdf,doc})
+setopt extendedglob
+
+# Enable changing to a directory without typing cd
+setopt AUTO_CD
+
+# Setup history
+setopt BANG_HIST                  # Treat the '!' character specially during expansion.
+setopt EXTENDED_HISTORY           # Write the history file in the ':start:elapsed;command' format.
+setopt INC_APPEND_HISTORY         # Write to the history file immediately, not when the shell exits.
+setopt SHARE_HISTORY              # Share history between all sessions.
+setopt HIST_EXPIRE_DUPS_FIRST     # Expire a duplicate event first when trimming history.
+setopt HIST_IGNORE_DUPS           # Do not record an event that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS       # Delete an old recorded event if a new event is a duplicate.
+setopt HIST_FIND_NO_DUPS          # Do not display a previously found event.
+setopt HIST_IGNORE_SPACE          # Do not record an event starting with a space.
+setopt HIST_SAVE_NO_DUPS          # Do not write a duplicate event to the history file.
+setopt HIST_VERIFY                # Do not execute immediately upon history expansion.
+setopt NO_BEEP                    # Disable beeping
+
+#}}}
+#{{{Autocompletion
+# Taken from Prezto: https://github.com/sorin-ionescu/prezto/blob/master/modules/completion/init.zsh
+
+# Options
+setopt COMPLETE_IN_WORD    # Complete from both ends of a word.
+setopt ALWAYS_TO_END       # Move cursor to the end of a completed word.
+setopt PATH_DIRS           # Perform path search even on command names with slashes.
+setopt AUTO_MENU           # Show completion menu on a successive tab press.
+setopt AUTO_LIST           # Automatically list choices on ambiguous completion.
+setopt AUTO_PARAM_SLASH    # If completed parameter is a directory, add a trailing slash.
+unsetopt MENU_COMPLETE     # Do not autoselect the first completion entry.
+unsetopt FLOW_CONTROL      # Disable start/stop characters in shell editor.
+
+# Use caching to make completion for commands such as dpkg and apt usable
+zstyle ':completion::complete:*' use-cache on
+zstyle ':completion::complete:*' cache-path "${ZDOTDIR:-$HOME}/.zcompcache"
+
+# Group matches and describe
+zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*:matches' group 'yes'
+zstyle ':completion:*:options' description 'yes'
+zstyle ':completion:*:options' auto-description '%d'
+zstyle ':completion:*:corrections' format ' %F{green}-- %d (errors: %e) --%f'
+zstyle ':completion:*:descriptions' format ' %F{yellow}-- %d --%f'
+zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
+zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+zstyle ':completion:*:default' list-prompt '%S%M matches%s'
+zstyle ':completion:*' format ' %F{yellow}-- %d --%f'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' verbose yes
+
+# Fuzzy match mistyped completions
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
+
+# Directories
+zstyle ':completion:*:default' list-colors ${(s.:.)ZLS_COLORS}
+zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories
+zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
+zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
+zstyle ':completion:*' squeeze-slashes true
+
+# Kill
+zstyle ':completion:*:*:*:*:processes' command 'ps -u $LOGNAME -o pid,user,command -w'
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=34=32=0'
+
+# Ignore multiple entries
+zstyle ':completion:*:(rm|kill|diff):*' ignore-line other
+zstyle ':completion:*:rm:*' file-patterns '*:all-files'
+
+#}}}
+#{{{Prompt
+
+# Git info styles
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:git*' formats "[%F{green}%b%f]%u%c%m %F{yellow}%a%f"
+zstyle ':vcs_info:*' unstagedstr ' %F{red}●%f'
+zstyle ':vcs_info:*' stagedstr ' %F{green}●%f'
+zstyle ':vcs_info:git+set-message:*' hooks stash remote-status
+
++vi-stash() {
+  if [[ -s ${hook_com[base]}/.git/refs/stash ]] ; then
+    hook_com[misc]+=" %F{yellow}◼︎%f"
+  fi
+}
+
++vi-remote-status() {
+  behind=$(git status -uno 2> /dev/null | grep 'behind' | wc -l)
+  ahead=$(git status -uno 2> /dev/null | grep 'ahead' | wc -l)
+  diverged=$(git status -uno 2> /dev/null | grep 'diverged' | wc -l)
+
+  if [[ $diverged -gt 0 ]] ; then
+    hook_com[misc]+=" %F{red}!!!%f"
+  else
+      if [[ $ahead -gt 0 ]] ; then
+        hook_com[misc]+=" %F{red}▲%f"
+      elif [[ $behind -gt 0 ]] ; then
+        hook_com[misc]+=" %F{red}▼%f"
+      fi
+  fi
+}
+
+# Update git info before every command
+precmd () {
+  vcs_info
+}
+
+# Set prompt
+setprompt() {
+  setopt prompt_subst
+
+  case ${KEYMAP} in
+    (vicmd)      VI_MODE="❮" ;;
+    (main|viins) VI_MODE="❯" ;;
+    (*)          VI_MODE="❯" ;;
+  esac
+
+  PROMPT='%F{yellow}%~%f ${vcs_info_msg_0_}
+%F{blue}$VI_MODE%f '
+  RPROMPT=''
+}
+
+setprompt
+
+# Update prompt on vi-insert and vi-cmd mode change
+function zle-line-init zle-keymap-select {
+  setprompt
+  zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+#}}}
+#{{{Source custom files
+
+[ -s "$DOTFILES/system/aliases.sh" ] && source "$DOTFILES/system/aliases.sh"
+[ -s "$DOTFILES/system/functions.sh" ] && source "$DOTFILES/system/functions.sh"
+
+#}}}
+#{{{Local configuration
+
+# Local files to be sourced if exists
+[ -s "${ZDOTDIR:-$HOME}/.zshenv.local" ] && source "${ZDOTDIR:-$HOME}/.zshenv.local"
+[ -s "${ZDOTDIR:-$HOME}/.zprofile.local" ] && source "${ZDOTDIR:-$HOME}/.zprofile.local"
+[ -s "${ZDOTDIR:-$HOME}/.zshrc.local" ] && source "${ZDOTDIR:-$HOME}/.zshrc.local"
+[ -s "${ZDOTDIR:-$HOME}/.zlogin.local" ] && source "${ZDOTDIR:-$HOME}/.zlogin.local"
+
+#}}}
+#{{{Autoload Tmux
+
+# Launch default session or attach to first existing Tmux session
+if [[ -z "$TMUX" ]]
+then
+    ID="`tmux ls | grep -vm1 attached | cut -d: -f1`"
+    if [[ -z "$ID" ]]
+    then
+        sh $DOTFILES/tmux/sessions/tmuxsession_default.sh
+    else
+        tmux attach-session -t "$ID"
+    fi
+fi
+
+#}}}
+
+# vim:foldmethod=marker:foldlevel=0:fen
