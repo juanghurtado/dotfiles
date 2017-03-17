@@ -214,6 +214,11 @@ vnoremap > >gv
 "  Search Vim help for word under cursor
 au FileType vim nnoremap K :help <C-r><C-w><CR>
 
+" Git
+" ---
+au FileType gitcommit set textwidth=72
+au FileType gitcommit set colorcolumn=73
+
 " Markdown
 " --------
 au FileType markdown setlocal wrap
