@@ -230,6 +230,10 @@ au FileType vim nnoremap K :help <C-r><C-w><CR>
 au FileType gitcommit set textwidth=72
 au FileType gitcommit set colorcolumn=73
 
+" Todo.txt
+" --------
+au BufRead,BufNewFile todo.txt set filetype=todo
+
 " Markdown
 " --------
 au FileType markdown setlocal wrap
