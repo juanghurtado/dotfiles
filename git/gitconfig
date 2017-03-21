@@ -16,7 +16,6 @@
   wip = !git add --all . && git commit -m 'WIP'
   unwip = undo
 
-  l     = "!source ~/.githelpers && pretty_git_log"
   l5    = !git l --max-count=5
   l10   = !git l --max-count=10
   l20   = !git l --max-count=20

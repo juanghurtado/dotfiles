@@ -21,12 +21,10 @@ SUBJECT="%s"
 
 FORMAT="$HASH $RELATIVE_TIME$REFS $SUBJECT $AUTHOR"
 
-pretty_git_log() {
-    git log --graph --pretty="tformat:${FORMAT}" $* |
-        # Replace (2 years ago) with (2 years)
-        sed -Ee 's/(^[^<]*) ago)/\1)/' |
-        # Replace (2 years, 5 months) with (2 years)
-        sed -Ee 's/(^[^<]*), [[:digit:]]+ .*months?)/\1)/'
-        # Line columns up based on } delimiter
-        # column -s '}' -t
-}
+git log --graph --pretty="tformat:${FORMAT}" $* |
+    # Replace (2 years ago) with (2 years)
+    sed -Ee 's/(^[^<]*) ago)/\1)/' |
+    # Replace (2 years, 5 months) with (2 years)
+    sed -Ee 's/(^[^<]*), [[:digit:]]+ .*months?)/\1)/'
+    # Line columns up based on } delimiter
+    # column -s '}' -t
