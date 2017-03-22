@@ -236,6 +236,14 @@ au FileType gitcommit set colorcolumn=73
 " --------
 au BufRead,BufNewFile todo.txt set filetype=todo
 
+" Handlebars
+" ----------
+au BufRead,BufNewFile *.hbs set filetype=html
+
+" CoffeeScript
+" ------------
+au BufRead,BufNewFile *.coffee set filetype=coffee
+
 " Markdown
 " --------
 au FileType markdown setlocal wrap
