@@ -52,7 +52,8 @@ set t_Co=256
 set background=dark
 colorscheme base16-default-dark
 
-" Indentation
+" Timeouts
+set timeout timeoutlen=3000 ttimeoutlen=100
 
 " Auto reload files when changed from outside Vim
 set autoread
