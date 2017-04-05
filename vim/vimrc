@@ -192,6 +192,9 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
+" Creates a commented line until column 80
+nnoremap <leader>f 100A-<esc>$d80|
+
 " Search Highlight
 nnoremap <leader>H :set hls! <cr>
 
@@ -243,6 +246,11 @@ au BufRead,BufNewFile *.hbs set filetype=html
 " CoffeeScript
 " ------------
 au BufRead,BufNewFile *.coffee set filetype=coffee
+au FileType coffee setlocal commentstring=#\ %s
+
+" TypeScript
+" ----------
+au BufRead,BufNewFile *.ts set filetype=typescript
 
 " Markdown
 " --------
