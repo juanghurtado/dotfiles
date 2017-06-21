@@ -219,6 +219,9 @@ nnoremap <leader><Down> :call CloseAllBuffersButCurrent()<CR>
 " Mapping for Ack
 nnoremap <Leader>a :Ack!<Space>
 
+" Find and replace word under cursor
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+
 " Insert mode
 " -----------
 " Insert mode: write lang<C-s> to get a shebang for given lang
