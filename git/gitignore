@@ -44,3 +44,6 @@ target/
 *.sublime-project
 *.sublime-workspace
 
+# IntelliJ
+.idea/
+*.iml
