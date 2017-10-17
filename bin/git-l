@@ -21,7 +21,7 @@ SUBJECT="%s"
 
 FORMAT="$HASH $RELATIVE_TIME$REFS $SUBJECT $AUTHOR"
 
-git log --graph --pretty="tformat:${FORMAT}" $* |
+git log --graph --color --pretty="tformat:${FORMAT}" $* |
     # Replace (2 years ago) with (2 years)
     sed -Ee 's/(^[^<]*) ago)/\1)/' |
     # Replace (2 years, 5 months) with (2 years)
