@@ -222,6 +222,9 @@ nnoremap <leader><Down> :call CloseAllBuffersButCurrent()<CR>
 " Mapping for Ack
 nnoremap <Leader>a :Ack!<Space>
 
+" Mapping for netrw Explore
+nnoremap <Leader>e :Explore<Space>**/**<left>
+
 " Find and replace word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
