@@ -42,6 +42,9 @@ let g:airline#extensions#tabline#fnametruncate = 16
 let g:airline#extensions#tabline#fnamecollapse = 2
 let g:airline#extensions#tabline#buffer_idx_mode = 0
 
+" Netrw
+let g:netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
+
 " Vim Markdown
 let g:markdown_fenced_languages = ['html', 'javascript', 'bash=sh', 'java', 'json']
 
