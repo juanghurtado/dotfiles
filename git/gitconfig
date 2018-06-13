@@ -5,7 +5,7 @@
   st    = status -sb
   ci    = commit
   cm    = commit -m
-  amend = commit --amend -C HEAD
+  amend = commit --amend
   co    = checkout
   br    = branch -va
   brd   = branch -D
