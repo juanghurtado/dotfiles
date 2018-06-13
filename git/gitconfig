@@ -16,6 +16,8 @@
   wip = !git add --all . && git commit -m 'WIP'
   unwip = undo
 
+  files = diff-tree --no-commit-id --name-only -r
+
   l5    = !git l --max-count=5
   l10   = !git l --max-count=10
   l20   = !git l --max-count=20
