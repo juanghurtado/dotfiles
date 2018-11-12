@@ -204,6 +204,10 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
+" Disable the ever-annoying Ex mode shortcut key. Type visual my ass. Instead,
+" make Q repeat the last macro instead. *hat tip* http://vimbits.com/bits/263
+nnoremap Q @@
+
 " Creates a commented line until column 80
 nnoremap <leader>f 100A-<esc>$d80|
 
