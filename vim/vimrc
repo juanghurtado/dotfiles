@@ -305,6 +305,8 @@ function! DeleteEmptyBuffers()
   endif
 endfunction
 
+com! FormatJSON %!python -m json.tool
+
 "}}}
 
 " vim:foldmethod=marker:foldlevel=0:fen
