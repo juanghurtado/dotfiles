@@ -10,7 +10,7 @@
   br    = branch -va
   brd   = branch -D
   undo  = reset --soft HEAD^
-  unmerged  = ls-files --unmerged
+  unmerged  = diff --name-only --diff-filter=U
   untracked = ls-files --other --exclude-standard
   ignored   = ls-files --ignored --exclude-standard
   wip = !git add --all . && git commit -m 'WIP'
