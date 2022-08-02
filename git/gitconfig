@@ -24,6 +24,9 @@
   last  = !git l -1
   local = !git l `git rev-parse --symbolic-full-name --abbrev-ref HEAD@{u}`..HEAD
 
+  prev-branch = !git co -
+  clean-local-branches = !git branch | grep -v -E 'main|dev|stage' | xargs git branch -D
+
   since-last-tag   = !git l `git describe --tags --abbrev=0`..HEAD
   archive-last-tag = !git archive --format=zip `git describe --tags --abbrev=0` > `git describe --tags --abbrev=0`.zip
   assume = update-index --assume-unchanged
@@ -40,4 +43,3 @@
   default = matching
 [include]
   path = ~/.gitconfig.local
-
