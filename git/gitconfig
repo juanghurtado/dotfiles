@@ -1,13 +1,14 @@
 [core]
   excludesfile = ~/.gitignore
   pager = less
+  ignorecase = false
 [alias]
   st    = status -sb
   ci    = commit
   cm    = commit -m
   amend = commit --amend
   co    = checkout
-  br    = branch -va
+  br    = branch -v
   brd   = branch -D
   undo  = reset --soft HEAD^
   unmerged  = diff --name-only --diff-filter=U
@@ -43,3 +44,5 @@
   default = matching
 [include]
   path = ~/.gitconfig.local
+[branch]
+  sort = -committerdate
