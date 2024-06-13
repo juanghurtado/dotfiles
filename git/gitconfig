@@ -14,8 +14,12 @@
   unmerged  = diff --name-only --diff-filter=U
   untracked = ls-files --other --exclude-standard
   ignored   = ls-files --ignored --exclude-standard
-  wip = !git add --all . && git commit -m 'WIP'
+  wip = !git add --all . && git commit -m 'WIP' --no-verify
   unwip = undo
+  fp = push -f origin head
+  am = !git commit --amend -C HEAD
+  amn = !git commit --amend -C HEAD --no-verify
+  p = push origin head
 
   files = diff-tree --no-commit-id --name-only -r
 
