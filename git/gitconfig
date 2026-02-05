@@ -1,8 +1,13 @@
+[user]
+  name = Juan G. Hurtado
+  email = juan.g.hurtado@gmail.com
+
 [core]
   excludesfile = ~/.gitignore
   pager = less
   ignorecase = false
 [alias]
+  pr = !open https://github.com/$(echo $(git remote get-url origin) | cut -f2 -d":" | cut -f1 -d".")/pull/new/$(git rev-parse --abbrev-ref HEAD)
   st    = status -sb
   ci    = commit
   cm    = commit -m
@@ -17,7 +22,7 @@
   wip = !git add --all . && git commit -m 'WIP' --no-verify
   unwip = undo
   fp = push -f origin head
-  am = !git commit --amend -C HEAD
+  amv = !git commit --amend -C HEAD
   amn = !git commit --amend -C HEAD --no-verify
   p = push origin head
 

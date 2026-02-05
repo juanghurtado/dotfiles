@@ -77,10 +77,10 @@ set backspace=indent,eol,start
 set clipboard+=unnamed
 
 " Highlight current line
-set cursorline
+" set cursorline
 
 " Highlight current column
-set cursorcolumn
+" set cursorcolumn
 
 " Set default encoding
 set encoding=UTF-8

@@ -192,3 +192,15 @@ fi
 #}}}
 
 # vim:foldmethod=marker:foldlevel=0:fen
+
+
+# bun completions
+[ -s "/Users/juanghurtado/.bun/_bun" ] && source "/Users/juanghurtado/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# opencode
+export PATH=/Users/juanghurtado/.opencode/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
