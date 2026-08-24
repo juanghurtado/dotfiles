@@ -16,6 +16,13 @@ case "$url" in
     ;;
 esac
 
+# Drop credentials embedded in the remote URL (e.g. x-access-token).
+if [[ "$url" == https://*@* ]]; then
+  url="https://${url#https://*@}"
+elif [[ "$url" == http://*@* ]]; then
+  url="http://${url#http://*@}"
+fi
+
 branch=$(git rev-parse --abbrev-ref HEAD)
 pr_url="$url/pull/new/$branch"
 
