@@ -1,0 +1,10 @@
+# Machine-specific config. Copied to ~/.zshrc.local by install.sh when missing.
+# This file is not tracked; keep host-only PATH and completions here.
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# opencode
+export PATH="$HOME/.opencode/bin:$PATH"

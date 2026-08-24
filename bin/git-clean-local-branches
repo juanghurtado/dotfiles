@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Delete merged local branches, keeping main/dev/stage and the current branch.
+
+set -u
+
+current=$(git branch --show-current)
+
+git for-each-ref --format='%(refname:short)' refs/heads |
+while IFS= read -r branch; do
+  case "$branch" in
+    main|dev|stage|"$current") continue ;;
+  esac
+  git branch -d "$branch"
+done

@@ -1,0 +1,13 @@
+#{{{Path
+
+# Re-apply user PATH after /etc/zprofile (macOS path_helper).
+[ -n "$DOTFILES" ] && [ -s "$DOTFILES/zsh/path.zsh" ] && source "$DOTFILES/zsh/path.zsh"
+
+#}}}
+#{{{Local configuration
+
+[ -s "${ZDOTDIR:-$HOME}/.zprofile.local" ] && source "${ZDOTDIR:-$HOME}/.zprofile.local"
+
+#}}}
+
+# vim:foldmethod=marker:foldlevel=0:fen

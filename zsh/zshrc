@@ -1,18 +1,30 @@
 #{{{Load modules
 
-autoload -Uz compinit && compinit
 autoload -Uz promptinit && promptinit
 autoload -Uz colors && colors
 autoload -Uz vcs_info
-autoload -Uz zsh/terminfo
+
+# Rebuild the completion dump at most once a day; skip the audit otherwise.
+autoload -Uz compinit
+() {
+  setopt local_options extendedglob
+  local zcd="${ZDOTDIR:-$HOME}/.zcompdump"
+  if [[ ! -s $zcd || -n $zcd(#qN.mh+24) ]]; then
+    compinit -d "$zcd"
+  else
+    compinit -C -d "$zcd"
+  fi
+}
 
 #}}}
 #{{{Global configuration
 
-# Set prompt to vi-mode
+# Set prompt to vi-mode. Default KEYTIMEOUT is 40 (400ms) and makes Esc lag.
 bindkey -v
+KEYTIMEOUT=1
 
 # Edit current command in $EDITOR
+autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
@@ -53,9 +65,6 @@ setopt AUTO_LIST           # Automatically list choices on ambiguous completion.
 setopt AUTO_PARAM_SLASH    # If completed parameter is a directory, add a trailing slash.
 unsetopt MENU_COMPLETE     # Do not autoselect the first completion entry.
 unsetopt FLOW_CONTROL      # Disable start/stop characters in shell editor.
-
-# Auto refresh
-zstyle ":completion:*:commands" rehash 1
 
 # Use caching to make completion for commands such as dpkg and apt usable
 zstyle ':completion::complete:*' use-cache on
@@ -113,18 +122,16 @@ zstyle ':vcs_info:git+set-message:*' hooks stash remote-status
 }
 
 +vi-remote-status() {
-  behind=$(git status -uno 2> /dev/null | grep 'behind' | wc -l)
-  ahead=$(git status -uno 2> /dev/null | grep 'ahead' | wc -l)
-  diverged=$(git status -uno 2> /dev/null | grep 'diverged' | wc -l)
+  local counts behind ahead
+  counts=$(git rev-list --left-right --count 'HEAD@{upstream}...HEAD' 2>/dev/null) || return
+  IFS=$'\t' read -r behind ahead <<< "$counts"
 
-  if [[ $diverged -gt 0 ]] ; then
+  if (( behind > 0 && ahead > 0 )); then
     hook_com[misc]+=" %F{red}!!!%f"
-  else
-      if [[ $ahead -gt 0 ]] ; then
-        hook_com[misc]+=" %F{red}▲%f"
-      elif [[ $behind -gt 0 ]] ; then
-        hook_com[misc]+=" %F{red}▼%f"
-      fi
+  elif (( ahead > 0 )); then
+    hook_com[misc]+=" %F{red}▲%f"
+  elif (( behind > 0 )); then
+    hook_com[misc]+=" %F{red}▼%f"
   fi
 }
 
@@ -150,9 +157,13 @@ setprompt() {
 
 setprompt
 
-# Update prompt on vi-insert and vi-cmd mode change
+# Block cursor in vicmd, bar cursor in insert mode
 function zle-line-init zle-keymap-select {
   setprompt
+  case ${KEYMAP} in
+    (vicmd) printf '\e[2 q' ;;
+    (*)     printf '\e[6 q' ;;
+  esac
   zle reset-prompt
 }
 
@@ -168,39 +179,8 @@ zle -N zle-keymap-select
 #}}}
 #{{{Local configuration
 
-# Local files to be sourced if exists
-[ -s "${ZDOTDIR:-$HOME}/.zshenv.local" ] && source "${ZDOTDIR:-$HOME}/.zshenv.local"
-[ -s "${ZDOTDIR:-$HOME}/.zprofile.local" ] && source "${ZDOTDIR:-$HOME}/.zprofile.local"
 [ -s "${ZDOTDIR:-$HOME}/.zshrc.local" ] && source "${ZDOTDIR:-$HOME}/.zshrc.local"
-[ -s "${ZDOTDIR:-$HOME}/.zlogin.local" ] && source "${ZDOTDIR:-$HOME}/.zlogin.local"
-
-#}}}
-#{{{Autoload Tmux
-
-# Launch default session or attach to first existing Tmux session
-if [[ -z "$TMUX" ]]
-then
-    ID="`tmux ls | grep -vm1 attached | cut -d: -f1`"
-    if [[ -z "$ID" ]]
-    then
-        sh $DOTFILES/tmux/sessions/tmuxsession_default.sh
-    else
-        tmux attach-session -t "$ID"
-    fi
-fi
 
 #}}}
 
 # vim:foldmethod=marker:foldlevel=0:fen
-
-
-# bun completions
-[ -s "/Users/juanghurtado/.bun/_bun" ] && source "/Users/juanghurtado/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# opencode
-export PATH=/Users/juanghurtado/.opencode/bin:$PATH
-export PATH="$HOME/.local/bin:$PATH"

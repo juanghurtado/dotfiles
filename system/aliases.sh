@@ -1,13 +1,12 @@
 #{{{System
 
-# Full ls
-alias ls="ls -FAlhoG"
+# Classify + color (BSD ls). Long / hidden listings are separate.
+alias ls="ls -FG"
+alias ll="ls -FAlhoG"
+alias la="ls -FA"
 
 # Clear screen
 alias cl="clear"
-
-# Always create full path
-alias mkdir="mkdir -p"
 
 # Easy navigation
 alias ..="cd .."

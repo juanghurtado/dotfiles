@@ -1,0 +1,7 @@
+#{{{Local configuration
+
+[ -s "${ZDOTDIR:-$HOME}/.zlogin.local" ] && source "${ZDOTDIR:-$HOME}/.zlogin.local"
+
+#}}}
+
+# vim:foldmethod=marker:foldlevel=0:fen

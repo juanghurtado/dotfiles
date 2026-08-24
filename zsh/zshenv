@@ -1,7 +1,6 @@
 #{{{Configuration
 
 export DOTFILES="$HOME/.dotfiles"
-export TERM="xterm-256color"
 
 # Editor
 export EDITOR="vim"
@@ -28,11 +27,12 @@ export TODOTXT_DEFAULT_ACTION=ls
 #}}}
 #{{{Path
 
-# Avoid loading global profiles (to prevent OSX El Capitan from messing my $PATH)
-setopt no_global_rcs
+[ -s "$DOTFILES/zsh/path.zsh" ] && source "$DOTFILES/zsh/path.zsh"
 
-typeset -U path
-path=(~/bin $DOTFILES/bin $DOTFILES/tmux/sessions /usr/local/bin $path[@])
+#}}}
+#{{{Local configuration
+
+[ -s "${ZDOTDIR:-$HOME}/.zshenv.local" ] && source "${ZDOTDIR:-$HOME}/.zshenv.local"
 
 #}}}
 
