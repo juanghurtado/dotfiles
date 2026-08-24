@@ -3,7 +3,7 @@
   pager = less
   ignorecase = false
 [alias]
-  pr = !open https://github.com/$(echo $(git remote get-url origin) | cut -f2 -d":" | cut -f1 -d".")/pull/new/$(git rev-parse --abbrev-ref HEAD)
+  pr = !"$HOME/.dotfiles/bin/git-pr"
   st    = status -sb
   ci    = commit
   cm    = commit -m
@@ -20,7 +20,7 @@
   fp = push --force-with-lease origin HEAD
   amv = !git commit --amend -C HEAD
   amn = !git commit --amend -C HEAD --no-verify
-  p = push origin HEAD
+  p = push -u origin HEAD
 
   files = diff-tree --no-commit-id --name-only -r
 
@@ -47,6 +47,11 @@
   whitespace = nowarn
 [push]
   default = simple
+  autoSetupRemote = true
+[fetch]
+  prune = true
+[init]
+  defaultBranch = main
 [include]
   path = ~/.gitconfig.local
 [branch]

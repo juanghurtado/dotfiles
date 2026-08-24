@@ -85,3 +85,11 @@ copy_if_missing "$DOTFILES/git/gitconfig.local.example" "$HOME/.gitconfig.local"
 # Todo.txt
 backup_and_link "$DOTFILES/todo-txt/todo.cfg" "$HOME/.todo.cfg"
 mkdir -p "$HOME/.todo"
+
+# Tmux Plugin Manager (plugins themselves stay untracked)
+TPM_DIR="$DOTFILES/tmux/plugins/tpm"
+if [[ ! -d "$TPM_DIR/.git" ]]; then
+  mkdir -p "$DOTFILES/tmux/plugins"
+  git clone --depth 1 https://github.com/tmux-plugins/tpm "$TPM_DIR"
+  echo "cloned tpm -> $TPM_DIR"
+fi

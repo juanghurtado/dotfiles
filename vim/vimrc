@@ -27,7 +27,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-scripts/netrw.vim'
 
 call plug#end()
 
@@ -62,7 +61,7 @@ cnoreabbrev Ack Ack!
 " Theme
 set t_Co=256
 set background=dark
-colorscheme base16-default-dark
+silent! colorscheme base16-default-dark
 
 " Timeouts
 set timeout timeoutlen=3000 ttimeoutlen=100
@@ -152,6 +151,10 @@ set scrolloff=5
 " Show commands (and visual selection info) on status line
 set showcmd
 
+" Completion menu for : commands
+set wildmenu
+set wildmode=longest:full,full
+
 " Autoindent on new lines
 set smartindent
 
@@ -187,9 +190,11 @@ highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$/
 
 augroup ExtraWhitespaceCommand
+  autocmd!
   autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
   autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
   autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+  autocmd BufWinLeave * call clearmatches()
 augroup END
 
 "}}}
@@ -247,42 +252,36 @@ vnoremap > >gv
 "}}}
 "{{{Filetype specific stuff
 
-" Vim
-" ---
-"  Search Vim help for word under cursor
-au FileType vim nnoremap K :help <C-r><C-w><CR>
+augroup DotfilesFiletypes
+  autocmd!
 
-" Git
-" ---
-au FileType gitcommit set textwidth=72
-au FileType gitcommit set colorcolumn=73
+  " Vim: search help for word under cursor
+  autocmd FileType vim nnoremap <buffer> K :help <C-r><C-w><CR>
 
-" Todo.txt
-" --------
-au BufRead,BufNewFile todo.txt set filetype=todo
+  " Git
+  autocmd FileType gitcommit setlocal textwidth=72
+  autocmd FileType gitcommit setlocal colorcolumn=73
 
-" Handlebars
-" ----------
-au BufRead,BufNewFile *.hbs set filetype=html
+  " Todo.txt
+  autocmd BufRead,BufNewFile todo.txt set filetype=todo
 
-" CoffeeScript
-" ------------
-au BufRead,BufNewFile *.coffee set filetype=coffee
-au FileType coffee setlocal commentstring=#\ %s
+  " Handlebars
+  autocmd BufRead,BufNewFile *.hbs set filetype=html
 
-" TypeScript
-" ----------
-au BufRead,BufNewFile *.ts set filetype=typescript
+  " CoffeeScript
+  autocmd BufRead,BufNewFile *.coffee set filetype=coffee
+  autocmd FileType coffee setlocal commentstring=#\ %s
 
-" Markdown
-" --------
-au FileType markdown setlocal wrap
+  " TypeScript
+  autocmd BufRead,BufNewFile *.ts set filetype=typescript
 
-" Fix up and down movements on wrapped text (visual and normal mode)
-au FileType markdown nnoremap <expr> j v:count ? 'j' : 'gj'
-au FileType markdown nnoremap <expr> k v:count ? 'k' : 'gk'
-au FileType markdown vnoremap <expr> j v:count ? 'j' : 'gj'
-au FileType markdown vnoremap <expr> k v:count ? 'k' : 'gk'
+  " Markdown
+  autocmd FileType markdown setlocal wrap
+  autocmd FileType markdown nnoremap <buffer> <expr> j v:count ? 'j' : 'gj'
+  autocmd FileType markdown nnoremap <buffer> <expr> k v:count ? 'k' : 'gk'
+  autocmd FileType markdown vnoremap <buffer> <expr> j v:count ? 'j' : 'gj'
+  autocmd FileType markdown vnoremap <buffer> <expr> k v:count ? 'k' : 'gk'
+augroup END
 
 "}}}
 "{{{Functions
@@ -305,7 +304,11 @@ function! DeleteEmptyBuffers()
   endif
 endfunction
 
-com! FormatJSON %!python -m json.tool
+if executable('python3')
+  command! FormatJSON %!python3 -m json.tool
+elseif executable('python')
+  command! FormatJSON %!python -m json.tool
+endif
 
 "}}}
 

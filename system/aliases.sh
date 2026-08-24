@@ -1,9 +1,15 @@
 #{{{System
 
-# Classify + color (BSD ls). Long / hidden listings are separate.
-alias ls="ls -FG"
-alias ll="ls -FAlhoG"
-alias la="ls -FA"
+# Classify + color. GNU ls uses --color; BSD ls uses -G.
+if command ls --color=auto / >/dev/null 2>&1; then
+  alias ls="ls --color=auto -F"
+  alias ll="ls --color=auto -FAlho"
+  alias la="ls --color=auto -FA"
+else
+  alias ls="ls -FG"
+  alias ll="ls -FAlhoG"
+  alias la="ls -FA"
+fi
 
 # Clear screen
 alias cl="clear"
@@ -14,9 +20,6 @@ alias ...="cd ../.."
 
 # Output commands usage statistics
 alias history-stat="history 0 | awk '{print \$2}' | sort | uniq -c | sort -n -r | head"
-
-# Copy pubkey
-alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
 # Ips
 alias myip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' && dig +short myip.opendns.com @resolver1.opendns.com"

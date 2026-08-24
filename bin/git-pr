@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Open a "create pull request" page for the current branch.
+# Handles SSH and HTTPS GitHub remotes; falls back to printing the URL.
+
+set -euo pipefail
+
+url=$(git remote get-url origin)
+url=${url%.git}
+
+case "$url" in
+  git@github.com:*)
+    url="https://github.com/${url#git@github.com:}"
+    ;;
+  ssh://git@github.com/*)
+    url="https://github.com/${url#ssh://git@github.com/}"
+    ;;
+esac
+
+branch=$(git rev-parse --abbrev-ref HEAD)
+pr_url="$url/pull/new/$branch"
+
+if command -v open >/dev/null 2>&1; then
+  open "$pr_url"
+elif command -v xdg-open >/dev/null 2>&1; then
+  xdg-open "$pr_url"
+else
+  printf '%s\n' "$pr_url"
+fi
