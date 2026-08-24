@@ -1,7 +1,3 @@
-[user]
-  name = Juan G. Hurtado
-  email = juan.g.hurtado@gmail.com
-
 [core]
   excludesfile = ~/.gitignore
   pager = less
@@ -21,10 +17,10 @@
   ignored   = ls-files --ignored --exclude-standard
   wip = !git add --all . && git commit -m 'WIP' --no-verify
   unwip = undo
-  fp = push -f origin head
+  fp = push --force-with-lease origin HEAD
   amv = !git commit --amend -C HEAD
   amn = !git commit --amend -C HEAD --no-verify
-  p = push origin head
+  p = push origin HEAD
 
   files = diff-tree --no-commit-id --name-only -r
 
@@ -35,7 +31,7 @@
   local = !git l `git rev-parse --symbolic-full-name --abbrev-ref HEAD@{u}`..HEAD
 
   prev-branch = !git co -
-  clean-local-branches = !git branch | grep -v -E 'main|dev|stage' | xargs git branch -D
+  clean-local-branches = !"$HOME/.dotfiles/bin/git-clean-local-branches"
 
   since-last-tag   = !git l `git describe --tags --abbrev=0`..HEAD
   archive-last-tag = !git archive --format=zip `git describe --tags --abbrev=0` > `git describe --tags --abbrev=0`.zip
@@ -50,7 +46,7 @@
 [apply]
   whitespace = nowarn
 [push]
-  default = matching
+  default = simple
 [include]
   path = ~/.gitconfig.local
 [branch]
