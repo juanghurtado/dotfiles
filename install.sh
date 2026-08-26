@@ -93,3 +93,6 @@ if [[ ! -d "$TPM_DIR/.git" ]]; then
   git clone --depth 1 https://github.com/tmux-plugins/tpm "$TPM_DIR"
   echo "cloned tpm -> $TPM_DIR"
 fi
+
+# Herdr
+backup_and_link "$DOTFILES/herdr/config.toml" "$HOME/.config/herdr/config.toml"
